@@ -14,6 +14,7 @@ export class AppComponent {
   public theme: string;
   public constructor(private service: PipThemesService) {
     this.themes = this.service.themes;
+    this.theme = this.service.theme;
 
   }
   public changeTheme() {
