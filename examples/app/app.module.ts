@@ -3,9 +3,13 @@ import { NgModule } from '@angular/core';
 import { PipTestModule } from './pip-webui2-themes';
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 
-import {MatButton, MatButtonModule } from '@angular/material';
+import { MatButton, MatButtonModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material';
+import { PipThemesModule } from './pip-webui2-themes';
 
 @NgModule({
   declarations: [
@@ -14,11 +18,14 @@ import {MatButton, MatButtonModule } from '@angular/material';
   imports: [
     BrowserModule,
     PipTestModule,
-    MatButtonModule
+    FormsModule,
+    MatButtonModule,
+    MatSelectModule,
+    PipThemesModule,
+    BrowserAnimationsModule
   ],
   providers: [],
 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
- 
