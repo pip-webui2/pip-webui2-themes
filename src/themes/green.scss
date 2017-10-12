@@ -8,14 +8,14 @@
 @include mat-core();
 
 // Define an alternate dark theme.
-$pip-blue-primary: mat-palette($mat-blue);
-$pip-blue-accent:  mat-palette($pip-green, A700, A100, A400);
-$pip-blue-warn:    mat-palette($mat-red, A200);
-$pip-blue-theme:   mat-light-theme($pip-blue-primary, $pip-blue-accent, $pip-blue-warn);
+$pip-green-primary: mat-palette($pip-green);
+$pip-green-accent:  mat-palette($pip-amber, A700, A100, A400);
+$pip-green-warn:    mat-palette($mat-red, A200);
+$pip-green-theme:   mat-light-theme($pip-green-primary, $pip-green-accent, $pip-green-warn);
 
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
 // CSS class whatever you want. In this example, any component inside of an element with
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
-.pip-blue-theme {
-  @include angular-material-theme($pip-blue-theme);
+.pip-green-theme {
+  @include angular-material-theme($pip-green-theme);
 }
