@@ -26,8 +26,8 @@ $pip-green: (
       900: $white-87-opacity,
       A100: $black-87-opacity,
       A200: $black-87-opacity,
-      A400: white,
-      A700: white,
+      A400: white, // todo
+      A700: white, // todo
     )
   );
   
@@ -61,6 +61,40 @@ $pip-green: (
       A100: $black-87-opacity,
       A200: $black-87-opacity,
       A400: $black-87-opacity,
-      A700: white
+      A700: white // todo
+    )
+  );
+
+
+  $pip-pink: (
+    50: #fce4ec,
+    100: #f8bbd0,
+    200: #f48fb1,
+    300: #f06292,
+    400: #ec407a,
+    500: #bc5679,
+    600: #d81b60,
+    700: #c2185b,
+    800: #ad1457,
+    900: #880e4f,
+    A100: #ff80ab,
+    A200: #ff4081,
+    A400: #f50057,
+    A700: #c51162,
+    contrast: (
+      50: $black-87-opacity,
+      100: $black-87-opacity,
+      200: $black-87-opacity,
+      300: $black-87-opacity,
+      400: $black-87-opacity,
+      500: white,
+      600: white,
+      700: $white-87-opacity,
+      800: $white-87-opacity,
+      900: $white-87-opacity,
+      A100: white,
+      A200: white,
+      A400: white,
+      A700: white,
     )
   );
