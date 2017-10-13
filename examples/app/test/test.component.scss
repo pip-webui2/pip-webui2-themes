@@ -6,7 +6,7 @@
 // have to load a single css file for Angular Material in your app.
 // **Be sure that you only ever include this mixin once!**
 @include mat-core();
-@import '../styles';
+@import '../../styles';
 
 @mixin content($theme) {
     // Extract whichever individual palettes you need from the theme.
@@ -30,8 +30,7 @@
   .unicorn-dark-theme { @include content($dark-theme); }
   .candy-theme { @include content($candy-app-theme); }
 
-  .pip-blue-theme{
-    @include content($pip-blue-theme);
+  .pip-blue-theme{ @include content($pip-blue-theme);
   }
   .pip-grey-theme{
     @include content($pip-grey-theme);
