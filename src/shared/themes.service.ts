@@ -26,6 +26,10 @@ export class PipThemesService {
         return this._arrayThemes;
     }
 
+    public set themes(themes: string[]) {
+        this._arrayThemes = themes;
+    }
+
     public get theme(): string {
         return this._localTheme;
     }
