@@ -13,7 +13,7 @@ import 'rxjs/add/operator/catch';
 export class PipThemesService {
 
     private _localTheme: string;
-    private _arrayThemes: string[] = ["candy-theme", "unicorn-dark-theme", "pip-blue-theme",
+    private _arrayThemes: string[] = ["candy-theme", "unicorn-dark-theme", "pip-blue-theme", "pip-grey-theme",
     "pip-navy-theme", "pip-amber-theme",  "pip-green-theme", "pip-orange-theme", "pip-pink-theme"];
     private _theme$: BehaviorSubject<string>;
 
