@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 
-import { MatButton, MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatButton, MatButtonModule, MatToolbarModule, MatSidenavModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material';
 import { PipThemesModule } from './pip-webui2-themes';
 
@@ -23,7 +23,8 @@ import { PipThemesModule } from './pip-webui2-themes';
     MatSelectModule,
     MatToolbarModule,
     PipThemesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSidenavModule 
   ],
   providers: [],
 
