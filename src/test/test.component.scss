@@ -6,7 +6,7 @@
 // have to load a single css file for Angular Material in your app.
 // **Be sure that you only ever include this mixin once!**
 @include mat-core();
-@import '../default-themes/styles';
+@import '../styles';
 
 @mixin content($theme) {
     // Extract whichever individual palettes you need from the theme.
@@ -30,5 +30,47 @@
   .unicorn-dark-theme { @include content($dark-theme); }
   .candy-theme { @include content($candy-app-theme); }
 
+  .pip-blue-theme{
+    @include content($pip-blue-theme);
+  }
+  .pip-grey-theme{
+    @include content($pip-grey-theme);
+  }
+  .pip-navy-theme{
+    @include content($pip-navy-theme);
+  } 
+  .pip-amber-theme{
+    @include content($pip-amber-theme);
+  }
+  .pip-green-theme{
+    @include content($pip-green-theme);
+  }
+  .pip-orange-theme{
 
+    @include content($pip-orange-theme);
+  }
+  .pip-pink-theme{
+
+    @include content($pip-pink-theme);
+  }
+  .pip-dark-theme{
+
+    @include content($pip-dark-theme);
+  }
+  .pip-black-theme{
+
+    @include content($pip-black-theme);
+  }
+  .pip-bootbarn-warm-theme{
+
+    @include content($pip-bootbarn-warm-theme);
+  }
+  .pip-bootbarn-cool-theme{
+    
+    @include content($pip-bootbarn-cool-theme);
+  }
+  .pip-bootbarn-monochrome-theme{
+
+    @include content($pip-bootbarn-monochrome-theme);
+  }
    
