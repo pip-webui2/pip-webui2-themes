@@ -6,7 +6,7 @@
 // have to load a single css file for Angular Material in your app.
 // **Be sure that you only ever include this mixin once!**
 @include mat-core();
-@import '../themes/first-theme';
+@import '../default-themes/styles';
 
 @mixin content($theme) {
     // Extract whichever individual palettes you need from the theme.
