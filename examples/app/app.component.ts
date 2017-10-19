@@ -14,11 +14,11 @@ export class AppComponent {
   public theme: string;
   public constructor(private service: PipThemesService) {
     this.themes = this.service.themes;
-    this.theme = this.service.theme;
+    this.theme = this.service.selectedTheme;
 
   }
   public changeTheme() {
     console.log(this.theme);
-    this.service.useTheme(this.theme);
+    this.service.selectedTheme = this.theme;
   }
 }

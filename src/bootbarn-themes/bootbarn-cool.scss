@@ -1,21 +1,21 @@
-@import '~@angular/material/theming';
-@import 'components';
+// @import '~@angular/material/theming';
+// @import 'colors';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // **Be sure that you only ever include this mixin once!**
-@include mat-core();
+//@include mat-core();
 
 // Define an alternate dark theme.
-$pip-bootbarn-cool-primary: mat-palette($mat-blue-grey, 700);
-$pip-bootbarn-cool-accent:  mat-palette($pip-bootbarn-green, 500, A100, A400);
-$pip-bootbarn-cool-warn:    mat-palette($mat-red, A200);
-$pip-bootbarn-cool-theme:   mat-light-theme($pip-bootbarn-cool-primary, $pip-bootbarn-cool-accent, $pip-bootbarn-cool-warn);
+$bootbarn-cool-primary: mat-palette($mat-blue-grey, 700);
+$bootbarn-cool-accent:  mat-palette($bootbarn-green, 500, A100, A400);
+$bootbarn-cool-warn:    mat-palette($mat-red, A200);
+$bootbarn-cool-theme:   mat-light-theme($bootbarn-cool-primary, $bootbarn-cool-accent, $bootbarn-cool-warn);
 
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
 // CSS class whatever you want. In this example, any component inside of an element with
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
-.pip-bootbarn-cool-theme {
-  @include angular-material-theme($pip-bootbarn-cool-theme);
+.bootbarn-cool-theme {
+  @include angular-material-theme($bootbarn-cool-theme);
 }

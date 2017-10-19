@@ -1,11 +1,11 @@
-@import '~@angular/material/theming';
-@import 'components';
+// @import '~@angular/material/theming';
+// @import 'colors';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // **Be sure that you only ever include this mixin once!**
-@include mat-core();
+//@include mat-core();
 
 // Define an alternate dark theme.
 $pip-black-primary: mat-palette($mat-blue-grey, 900);

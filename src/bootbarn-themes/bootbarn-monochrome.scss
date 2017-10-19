@@ -1,21 +1,21 @@
-@import '~@angular/material/theming';
-@import 'components';
+// @import '~@angular/material/theming';
+// @import 'colors';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // **Be sure that you only ever include this mixin once!**
-@include mat-core();
+//@include mat-core();
 
 // Define an alternate dark theme.
-$pip-bootbarn-monochrome-primary: mat-palette($mat-blue-grey, 900);
-$pip-bootbarn-monochrome-accent:  mat-palette($mat-green, 600, A100, A400);
-$pip-bootbarn-monochrome-warn:    mat-palette($mat-red, A200);
-$pip-bootbarn-monochrome-theme:   mat-light-theme($pip-bootbarn-monochrome-primary, $pip-bootbarn-monochrome-accent, $pip-bootbarn-monochrome-warn);
+$bootbarn-monochrome-primary: mat-palette($mat-blue-grey, 900);
+$bootbarn-monochrome-accent:  mat-palette($mat-green, 600, A100, A400);
+$bootbarn-monochrome-warn:    mat-palette($mat-red, A200);
+$bootbarn-monochrome-theme:   mat-light-theme($bootbarn-monochrome-primary, $bootbarn-monochrome-accent, $bootbarn-monochrome-warn);
 
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
 // CSS class whatever you want. In this example, any component inside of an element with
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
-.pip-bootbarn-monochrome-theme {
-  @include angular-material-theme($pip-bootbarn-monochrome-theme);
+.bootbarn-monochrome-theme {
+  @include angular-material-theme($bootbarn-monochrome-theme);
 }

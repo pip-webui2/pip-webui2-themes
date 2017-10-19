@@ -32,8 +32,8 @@ describe('Themes service', () => {
         expect(service).toBeDefined();
     });
 
-    it('useTheme function should change theme', () => {
-        //service.useTheme('new theme');
-        //expect(service.theme).toEqual('new theme');  
+    it('selectedTheme function should change theme', () => {
+        //service.selectedTheme = 'new-theme';
+        //expect(service.selectedTheme).toEqual('new-theme');  
     });
 });

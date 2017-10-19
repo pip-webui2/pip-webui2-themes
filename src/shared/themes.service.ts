@@ -1,55 +1,70 @@
-import * as _ from 'lodash';
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+export const defaultTheme: string = 'pip-blue-theme';
 
 @Injectable()
 export class PipThemesService {
 
-    private _localTheme: string;
-    private _arrayThemes: string[] = ["candy-theme", "unicorn-dark-theme", "pip-blue-theme", "pip-grey-theme",
-        "pip-navy-theme", "pip-amber-theme", "pip-green-theme", "pip-orange-theme", "pip-pink-theme", "pip-dark-theme", "pip-black-theme",
-        "pip-bootbarn-warm-theme", "pip-bootbarn-cool-theme", "pip-bootbarn-monochrome-theme"];
-    private _theme$: BehaviorSubject<string>;
+    private _selectedTheme: string = defaultTheme;
+    private _themes: string[] = [
+        "candy-theme",
+        "unicorn-dark-theme",
+        "pip-blue-theme",
+        "pip-grey-theme",
+        "pip-navy-theme",
+        "pip-amber-theme",
+        "pip-green-theme",
+        "pip-orange-theme",
+        "pip-pink-theme",
+        "pip-dark-theme",
+        "pip-black-theme",
+        "bootbarn-warm-theme",
+        "bootbarn-cool-theme",
+        "bootbarn-monochrome-theme"
+    ];
+
+    private _themes$ = new BehaviorSubject<string[]>(this._themes);
+    private _selectedTheme$ = new BehaviorSubject<string>(this._selectedTheme);
 
     public constructor() {
-        this._localTheme = window.localStorage.getItem('theme') || this._arrayThemes[0];
-        this._theme$ = new BehaviorSubject<string>(this._localTheme);
-        this.useTheme(this._localTheme);
+        this.selectedTheme = window.localStorage.getItem('theme') || defaultTheme;
+    }
+
+    public get themes$(): Observable<string[]> {
+        return this._themes$;
     }
 
     public get themes(): string[] {
-        return this._arrayThemes;
+        return this._themes;
     }
 
     public set themes(themes: string[]) {
-        this._arrayThemes = themes;
+        this._themes = themes;
+        this._themes$.next(themes);
+    }    
+
+    public get selectedTheme$(): Observable<string> {
+        return this._selectedTheme$;
     }
 
-    public get theme(): string {
-        return this._localTheme;
+    public get selectedTheme(): string {
+        return this._selectedTheme;
     }
 
-    public get theme$(): Observable<string> {
-        return this._theme$;
-    }
-
-    public useTheme(theme: string) {
-
-        if (!theme) return null;
-
+    public set selectedTheme(theme: string) {
+        // Save selected theme to local storage
         window.localStorage.setItem('theme', theme);
-        document.body.classList.remove(this._localTheme);
-        this._localTheme = theme;
-        this._theme$.next(this._localTheme);
-        document.body.classList.add(theme);
 
+        // Remove old theme name as a class to body
+        document.body.classList.remove(this._selectedTheme);
+
+        this._selectedTheme = theme;
+        this._selectedTheme$.next(this._selectedTheme);
+
+        // Add new theme name as a class to body
+        document.body.classList.add(theme);
     }
 
 }
