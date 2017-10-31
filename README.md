@@ -4,6 +4,8 @@
 
 Pip.WebUI 2 Themes module contains a mechanism to define and dynamically switch color themes for both Angular Material and custom controls.
 
+<img src="doc/ima/image.jpg"/>
+
 ## <a name="license"></a>License
 
 This module is released under [MIT license](License) and totally free for commercial and non-commercial use.
