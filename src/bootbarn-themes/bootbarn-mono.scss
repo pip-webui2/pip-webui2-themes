@@ -8,14 +8,14 @@
 //@include mat-core();
 
 // Define an alternate dark theme.
-$bootbarn-monochrome-primary: mat-palette($mat-blue-grey, 900);
-$bootbarn-monochrome-accent:  mat-palette($mat-green, 600, A100, A400);
-$bootbarn-monochrome-warn:    mat-palette($mat-red, A200);
-$bootbarn-monochrome-theme:   mat-light-theme($bootbarn-monochrome-primary, $bootbarn-monochrome-accent, $bootbarn-monochrome-warn);
+$bootbarn-mono-primary: mat-palette($mat-blue-grey, 900);
+$bootbarn-mono-accent:  mat-palette($mat-green, 600, A100, A400);
+$bootbarn-mono-warn:    mat-palette($mat-red, A200);
+$bootbarn-mono-theme:   mat-light-theme($bootbarn-mono-primary, $bootbarn-mono-accent, $bootbarn-mono-warn);
 
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
 // CSS class whatever you want. In this example, any component inside of an element with
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
-.bootbarn-monochrome-theme {
-  @include angular-material-theme($bootbarn-monochrome-theme);
+.bootbarn-mono-theme {
+  @include angular-material-theme($bootbarn-mono-theme);
 }

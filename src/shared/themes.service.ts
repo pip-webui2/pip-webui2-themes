@@ -22,7 +22,7 @@ export class PipThemesService {
         "pip-black-theme",
         "bootbarn-warm-theme",
         "bootbarn-cool-theme",
-        "bootbarn-monochrome-theme"
+        "bootbarn-mono-theme"
     ];
 
     private _themes$ = new BehaviorSubject<string[]>(this._themes);
