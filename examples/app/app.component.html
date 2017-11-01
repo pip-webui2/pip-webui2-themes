@@ -10,7 +10,7 @@
                 [(ngModel)]="theme"
                 (ngModelChange)="changeTheme($event)">
                     <mat-option *ngFor="let theme of themes" [value]="theme" >
-                        {{theme}}
+                        {{theme.name}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>

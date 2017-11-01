@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSelect } from '@angular/material';
-import { PipThemesService } from './pip-webui2-themes';
+import { PipThemesService, ThemeModel } from './pip-webui2-themes';
 
 
 @Component({
@@ -10,8 +10,8 @@ import { PipThemesService } from './pip-webui2-themes';
 })
 export class AppComponent {
 
-  public themes: string[];
-  public theme: string;
+  public themes: ThemeModel[];
+  public theme: ThemeModel;
   public constructor(private service: PipThemesService) {
     this.themes = this.service.themes;
     this.theme = this.service.selectedTheme;
