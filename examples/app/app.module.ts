@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { PipTestModule } from './test/test.module';
 
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { PipThemesModule } from './pip-webui2-themes';
   imports: [
     BrowserModule,
     PipTestModule,
+    FlexLayoutModule,
     FormsModule,
     MatButtonModule,
     MatSelectModule,
