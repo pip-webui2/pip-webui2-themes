@@ -1,102 +1,101 @@
 <mat-sidenav-container class="content">
-    
-        <mat-toolbar color="primary" class="mat-elevation-z6 example-appbar" >
-            <span fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
+
+    <mat-toolbar color="primary" class="mat-elevation-z6 example-appbar">
+        <span fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
 
                 <span fxFlex="grow">{{app}}</span>
-            <mat-form-field *ngIf="!activeMediaQuery">
-                <mat-select [(ngModel)]="theme" (ngModelChange)="changeTheme($event)">
-                    <mat-option *ngFor="let theme of themes" [value]="theme">
-                        {{theme.name}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            </span>
-        </mat-toolbar>
-    
-        <div fxLayout="row" style="height: calc(100% - 68px);">
-            <div fxFlex="grow" style="width: calc(100% - 300px); 
+        <mat-form-field *ngIf="!activeMediaQuery">
+            <mat-select [(ngModel)]="theme" (ngModelChange)="changeTheme($event)">
+                <mat-option *ngFor="let theme of themes" [value]="theme">
+                    {{theme.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </span>
+    </mat-toolbar>
+
+    <div fxLayout="row" style="height: calc(100% - 68px);">
+        <div fxFlex="grow" style="width: calc(100% - 300px); 
                             overflow: auto">
-                <!--<mat-toolbar color="primary">
+            <!--<mat-toolbar color="primary">
                 </mat-toolbar> -->
-                <div class="router">
-    
-                    <h2>Изменение картинки в зависимости от светлой или темной темы</h2>
-                        <img [src]="picture" class="app-pic">
-                        <div>
-                            
+            <div class="router">
+
+                <h2>Изменение картинки в зависимости от светлой или темной темы</h2>
+                <img [src]="picture" class="app-pic">
+                <div>
+
                     <h2>Стилизация custom компонента</h2>
-                            <pip-test [text]= "new"></pip-test>
-                           
-                        
-                            
+                    <pip-test [text]="new"></pip-test>
+
+
+
                     <h2>Проверка работы material контролов для разных тем</h2>
-                            <mat-toolbar color="primary">
-                                <span>Custom Toolbar</span>
-                              
-                                <mat-toolbar-row>
-                                  <span>Second Line</span>
-                                  <span class="example-spacer"></span>
-                                  <mat-icon class="example-icon">verified_user</mat-icon>
-                                </mat-toolbar-row>
-                              
-                                <mat-toolbar-row>
-                                  <span>Third Line</span>
-                                  <span class="example-spacer"></span>
-                                  <mat-icon class="example-icon">favorite</mat-icon>
-                                  <mat-icon class="example-icon">delete</mat-icon>
-                                </mat-toolbar-row>
-                              </mat-toolbar>
-                        
-                            <h3>Basic Buttons</h3>
-                            <div class="button-row">
-                                <button mat-button>Basic</button>
-                                <button mat-button color="primary">Primary</button>
-                                <button mat-button color="accent">Accent</button>
-                                <button mat-button color="warn">Warn</button>
-                                <button mat-button disabled>Disabled</button>
-                                <a mat-button routerLink=".">Link</a>
-                            </div>
-                        
-                            <h3>Raised Buttons</h3>
-                            <div class="button-row">
-                                <button mat-raised-button>Basic</button>
-                                <button mat-raised-button color="primary">Primary</button>
-                                <button mat-raised-button color="accent">Accent</button>
-                                <button mat-raised-button color="warn">Warn</button>
-                                <button mat-raised-button disabled>Disabled</button>
-                                <a mat-raised-button routerLink=".">Link</a>
-                            </div>
-                        
-                            <h3>Fab Buttons</h3>
-                            <div class="button-row">
-                                <button mat-fab>Basic</button>
-                                <button mat-fab color="primary">Primary</button>
-                                <button mat-fab color="accent">Accent</button>
-                                <button mat-fab color="warn">Warn</button>
-                                <button mat-fab disabled>Disabled</button>
-                                <button mat-fab>
+                    <mat-toolbar color="primary">
+                        <span>Custom Toolbar</span>
+
+                        <mat-toolbar-row>
+                            <span>Second Line</span>
+                            <span class="example-spacer"></span>
+                            <mat-icon class="example-icon">verified_user</mat-icon>
+                        </mat-toolbar-row>
+
+                        <mat-toolbar-row>
+                            <span>Third Line</span>
+                            <span class="example-spacer"></span>
+                            <mat-icon class="example-icon">favorite</mat-icon>
+                            <mat-icon class="example-icon">delete</mat-icon>
+                        </mat-toolbar-row>
+                    </mat-toolbar>
+
+                    <h3>Basic Buttons</h3>
+                    <div class="button-row">
+                        <button mat-button>Basic</button>
+                        <button mat-button color="primary">Primary</button>
+                        <button mat-button color="accent">Accent</button>
+                        <button mat-button color="warn">Warn</button>
+                        <button mat-button disabled>Disabled</button>
+                        <a mat-button routerLink=".">Link</a>
+                    </div>
+
+                    <h3>Raised Buttons</h3>
+                    <div class="button-row">
+                        <button mat-raised-button>Basic</button>
+                        <button mat-raised-button color="primary">Primary</button>
+                        <button mat-raised-button color="accent">Accent</button>
+                        <button mat-raised-button color="warn">Warn</button>
+                        <button mat-raised-button disabled>Disabled</button>
+                        <a mat-raised-button routerLink=".">Link</a>
+                    </div>
+
+                    <h3>Fab Buttons</h3>
+                    <div class="button-row">
+                        <button mat-fab>Basic</button>
+                        <button mat-fab color="primary">Primary</button>
+                        <button mat-fab color="accent">Accent</button>
+                        <button mat-fab color="warn">Warn</button>
+                        <button mat-fab disabled>Disabled</button>
+                        <button mat-fab>
                                     <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
                                 </button>
-                                <a mat-fab routerLink=".">Link</a>
-                            </div>
-                        
-                            <h3>Mini Fab Buttons</h3>
-                            <div class="button-row">
-                                <button mat-mini-fab>Basic</button>
-                                <button mat-mini-fab color="primary">Primary</button>
-                                <button mat-mini-fab color="accent">Accent</button>
-                                <button mat-mini-fab color="warn">Warn</button>
-                                <button mat-mini-fab disabled>Disabled</button>
-                                <button mat-mini-fab>
-                                    <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
-                                </button>
-                                <a mat-mini-fab routerLink=".">Link</a>
-                            </div>
-                        </div>
+                        <a mat-fab routerLink=".">Link</a>
+                    </div>
+
+                    <h3>Mini Fab Buttons</h3>
+                    <div class="button-row">
+                        <button mat-mini-fab>Basic</button>
+                        <button mat-mini-fab color="primary">Primary</button>
+                        <button mat-mini-fab color="accent">Accent</button>
+                        <button mat-mini-fab color="warn">Warn</button>
+                        <button mat-mini-fab disabled>Disabled</button>
+                        <button mat-mini-fab>
+                            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                        </button>
+                        <a mat-mini-fab routerLink=".">Link</a>
+                    </div>
                 </div>
             </div>
         </div>
-    
-    </mat-sidenav-container>
+    </div>
 
+</mat-sidenav-container>
