@@ -103,7 +103,6 @@ export class PipThemesService {
         this._selectedTheme = theme;
         this._selectedTheme$.next(this._selectedTheme);
 
-
         // Add new theme name as a class to body
         document.body.classList.add(theme.name);
     }
