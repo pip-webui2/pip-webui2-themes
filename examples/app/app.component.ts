@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSelect } from '@angular/material';
-import { PipThemesService, ThemeModel } from './pip-webui2-themes';
+import { PipThemesService, Theme } from './pip-webui2-themes';
 import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 
 @Component({
@@ -10,8 +10,8 @@ import { ObservableMedia, MediaChange } from "@angular/flex-layout";
 })
 export class AppComponent {
 
-  public themes: ThemeModel[];
-  public theme: ThemeModel;
+  public themes: Theme[];
+  public theme: Theme;
   public picture: string;
   public mode: string;
   public app: string = 'Themes';
