@@ -2,9 +2,9 @@
 
     <mat-toolbar color="primary" class="mat-elevation-z6 example-appbar">
         <span fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
+        <span fxFlex="grow">{{app}}</span>
 
-                <span fxFlex="grow">{{app}}</span>
-        <mat-form-field *ngIf="!activeMediaQuery">
+        <mat-form-field>
             <mat-select [(ngModel)]="theme" (ngModelChange)="changeTheme($event)">
                 <mat-option *ngFor="let theme of themes" [value]="theme">
                     {{themesLocalNames[theme.name] || theme.name}}
