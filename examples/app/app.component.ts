@@ -31,12 +31,8 @@ export class AppComponent {
     "bootbarn-warm-theme": 'Bootbarn Warm',
     "bootbarn-cool-theme": 'Bootbarn Cool',
     "bootbarn-mono-theme": 'Bootbarn Mono'
-
   }
-    
   
-
-
   public constructor(private service: PipThemesService,
 		public media: ObservableMedia) {
     this.themes = this.service.themes;

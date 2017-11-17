@@ -89,6 +89,7 @@ export class PipThemesService {
         this._themes$ = new BehaviorSubject<Theme[]>(this._themes);
         this._selectedTheme$ = new BehaviorSubject<Theme>(this._selectedTheme);
         this._selectedThemeName$ = new BehaviorSubject<string>(this._selectedTheme.name);
+        this.selectedTheme = this._selectedTheme;
     }
 
     public get themes$(): Observable<Theme[]> {
