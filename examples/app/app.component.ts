@@ -38,7 +38,6 @@ export class AppComponent {
     this.themes = this.service.themes;
     this.theme = this.service.selectedTheme;
     this.picture = this.theme.palette == 'light' ? '/assets/1.jpg' : '/assets/2.jpg';
-
     
     media.subscribe((change: MediaChange) => {
       this.activeMediaQuery = change && change.mqAlias == 'xs'? true : false;
