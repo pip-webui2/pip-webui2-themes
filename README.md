@@ -4,7 +4,9 @@
 
 Pip.WebUI 2 Themes module contains a mechanism to define and dynamically switch color themes for both Angular Material and custom controls.
 
-<img src="doc/imgages/image.png"/>
+<a href="https://github.com/pip-webui2/pip-webui2-themes/raw/master/doc/images/image.png" style="display: block;">
+    <img src="https://github.com/pip-webui2/pip-webui2-themes/raw/master/doc/images/image.png"/>
+</a>
 
 **Using**
 
