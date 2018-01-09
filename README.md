@@ -8,7 +8,7 @@ Pip.WebUI 2 Themes module contains a mechanism to define and dynamically switch 
     <img src="https://github.com/pip-webui2/pip-webui2-themes/raw/master/doc/images/image.png"/>
 </a>
 
-**Using**
+## Using
 
 Add module to imports:
 ```typescript
