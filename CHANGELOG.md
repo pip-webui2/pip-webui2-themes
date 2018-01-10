@@ -2,7 +2,7 @@
 
 ## <a name="0.0.0"></a> 0.0.0 (2017-01-09)
 
-Initial release with core services, behaviors and switching color themes
+Initial release with service and switching color themes
 
 #### Features
 * **themes** Themes switching services
