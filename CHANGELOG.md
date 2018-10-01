@@ -14,3 +14,18 @@ No breaking changes in this version
 
 #### Bug Fixes
 No fixes in this version 
+
+## <a name="0.0.2"></a> 0.0.2 (2018-10-01)
+
+Update to Angular 6.
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No fixes in this version 
