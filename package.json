@@ -9,7 +9,8 @@
     "build:lib-styles": "scss-bundle -e ./projects/pip-webui2-themes/src/lib/styles.scss -d ./dist/pip-webui2-themes/styles.scss",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "package": "npm run build:lib && copy .\\LICENSE .\\dist\\pip-webui2-themes && copy .\\README.md .\\dist\\pip-webui2-themes && cd dist/pip-webui2-themes && npm pack"
   },
   "private": false,
   "dependencies": {

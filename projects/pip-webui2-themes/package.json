@@ -1,6 +1,6 @@
 {
   "name": "pip-webui2-themes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "peerDependencies": {
     "@angular/cdk": "^6.4.7",
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
