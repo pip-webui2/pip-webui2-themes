@@ -1,13 +1,13 @@
 {
   "name": "pip-webui2-themes",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "build:lib": "ng build pip-webui2-themes && npm run build:lib-styles",
-    "build:lib-styles": "scss-bundle -e ./projects/pip-webui2-themes/src/lib/styles.scss -d ./dist/pip-webui2-themes/styles.scss",
+    "build:lib-styles": "scss-bundle -c ./projects/pip-webui2-themes/scss-bundle.config.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
