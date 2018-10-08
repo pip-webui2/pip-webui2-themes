@@ -14,6 +14,7 @@ export class AppComponent {
   public picture: string;
   public mode: string;
   public app = 'Themes';
+  public newText = '';
   public activeMediaQuery: boolean;
   public themesLocalNames: any = {
     'candy-theme': 'Candy',
