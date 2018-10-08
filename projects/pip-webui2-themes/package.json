@@ -1,6 +1,7 @@
 {
   "name": "pip-webui2-themes",
   "version": "1.0.0",
+  "license": "MIT",
   "repository": {
     "type" : "git",
     "url" : "https://github.com/pip-webui2/pip-webui2-themes"
