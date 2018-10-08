@@ -15,7 +15,7 @@ No breaking changes in this version
 #### Bug Fixes
 No fixes in this version 
 
-## <a name="1.0.0"></a> 1.0.0 (2018-10-03)
+## <a name="1.0.0"></a> 1.0.0 (2018-10-08)
 
 Update to Angular 6.
 
