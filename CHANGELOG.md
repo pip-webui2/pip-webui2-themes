@@ -61,3 +61,18 @@ Updated to Angular 7, test fixed.
 * Library tests works now. Run `npm run test:lib` to check it out;
 * Example tests works now. Run `npm run test` to check it out;
 * E2E tests works too. Run `npm run e2e` to check it out.
+
+## <a name="1.1.1"></a> 1.1.1 (2018-11-21)
+
+Angular CDK and Material updated to 7.1
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version

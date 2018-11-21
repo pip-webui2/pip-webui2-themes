@@ -48,7 +48,6 @@ export class AppComponent {
 
   }
   public changeTheme(theme) {
-    console.log(this.theme);
     this.theme = theme;
     this.service.selectedTheme = theme;
     this.picture = this.theme.palette === 'light' ? '/assets/1.jpg' : '/assets/2.jpg';
