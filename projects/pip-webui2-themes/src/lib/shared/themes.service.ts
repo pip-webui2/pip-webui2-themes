@@ -105,7 +105,7 @@ export class PipThemesService {
     }
 
     public get selectedThemeName(): string {
-        return this._selectedTheme ? this._selectedTheme.name : null;
+        return this._selectedTheme && this._selectedTheme.name;
     }
 
     public set selectedThemeName(name: string) {

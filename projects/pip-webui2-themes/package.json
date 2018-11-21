@@ -1,16 +1,19 @@
 {
   "name": "pip-webui2-themes",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/pip-webui2/pip-webui2-themes"
+    "type": "git",
+    "url": "https://github.com/pip-webui2/pip-webui2-themes"
   },
   "peerDependencies": {
-    "@angular/cdk": "^6.4.7",
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/material": "^6.4.7",
-    "rxjs": "~6.2.0"
+    "@angular/cdk": "^7.0.4",
+    "@angular/common": "^7.1.0-rc.0",
+    "@angular/core": "^7.1.0-rc.0",
+    "@angular/material": "^7.0.4",
+    "rxjs": "~6.3.3"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.11"
   }
 }
