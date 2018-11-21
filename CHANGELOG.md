@@ -76,3 +76,18 @@ No breaking changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.2"></a> 1.1.2 (2018-11-21)
+
+Next versions of Angular replaced with stable.
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
