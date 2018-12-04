@@ -26,7 +26,7 @@ import { TestModule } from './test/test.module';
     MatSidenavModule,
 
     TestModule,
-    PipThemesModule
+    PipThemesModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
