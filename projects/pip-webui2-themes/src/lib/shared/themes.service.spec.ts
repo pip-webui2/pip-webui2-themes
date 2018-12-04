@@ -81,4 +81,21 @@ describe('Themes service', () => {
         });
         service.selectedTheme = theme;
     });
+
+    it('body should have theme name in class list', () => {
+        expect(service.themes).toEqual(jasmine.any(Array));
+        expect(service.themes.length).toBeGreaterThan(0);
+        const theme = sample(service.themes);
+        service.selectedThemeName = theme.name;
+        expect(document.body.classList.contains(theme.name)).toBeTruthy();
+        let anotherTheme = sample(service.themes);
+        if (anotherTheme.name === theme.name) {
+            while (anotherTheme.name === theme.name) {
+                anotherTheme = sample(service.themes);
+            }
+        }
+        service.selectedTheme = anotherTheme;
+        expect(document.body.classList.contains(theme.name)).toBeFalsy();
+        expect(document.body.classList.contains(anotherTheme.name)).toBeTruthy();
+    });
 });

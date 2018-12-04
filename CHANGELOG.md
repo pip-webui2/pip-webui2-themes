@@ -91,3 +91,18 @@ No breaking changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.3"></a> 1.1.3 (2018-12-04)
+
+Provider now only forRoot module
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+
+#### Bug Fixes
+No bug fixes changes in this version
