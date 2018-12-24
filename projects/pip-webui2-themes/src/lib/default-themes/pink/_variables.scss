@@ -1,0 +1,4 @@
+$pip-pink-primary: mat-palette($pip-pink);
+$pip-pink-accent:  mat-palette($pip-pink, A100, A100, A100);
+$pip-pink-warn:    mat-palette($mat-red, A200);
+$pip-pink-theme:   mat-light-theme($pip-pink-primary, $pip-pink-accent, $pip-pink-warn);

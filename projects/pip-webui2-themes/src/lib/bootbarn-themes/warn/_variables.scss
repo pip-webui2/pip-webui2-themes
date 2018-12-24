@@ -1,0 +1,4 @@
+$bootbarn-warm-primary: mat-palette($bootbarn-deep-orange, 900);
+$bootbarn-warm-accent:  mat-palette($bootbarn-teal, A700, A100, A400);
+$bootbarn-warm-warn:    mat-palette($mat-red, A200);
+$bootbarn-warm-theme:   mat-light-theme($bootbarn-warm-primary, $bootbarn-warm-accent, $bootbarn-warm-warn);

@@ -1,19 +1,19 @@
 {
   "name": "pip-webui2-themes",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "build:lib": "ng build pip-webui2-themes && npm run build:lib-styles",
-    "build:lib-styles": "scss-bundle -c ./projects/pip-webui2-themes/scss-bundle.config.json",
+    "build:lib-styles": "scss-bundle -c ./projects/pip-webui2-themes/scss-bundle.styles.json && scss-bundle -c ./projects/pip-webui2-themes/scss-bundle.variables.json",
     "test": "ng test",
     "test:lib": "ng test pip-webui2-themes",
     "lint": "ng lint",
     "lint:lib": "ng lint pip-webui2-themes",
     "e2e": "ng e2e",
-    "package": "npm run build:lib && copy .\\LICENSE .\\dist\\pip-webui2-themes && copy .\\README.md .\\dist\\pip-webui2-themes && cd dist/pip-webui2-themes && npm pack"
+    "package": "npm run build:lib && (for %I in (LICENSE README.md CHANGELOG.md) do copy .\\%I .\\dist\\pip-webui2-themes) && cd dist/pip-webui2-themes && npm pack"
   },
   "private": false,
   "dependencies": {

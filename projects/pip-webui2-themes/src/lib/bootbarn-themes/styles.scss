@@ -1,5 +1,10 @@
 @import 'colors';
+@import 'variables';
 
-@import "bootbarn-warm";
-@import "bootbarn-cool";
-@import "bootbarn-mono";
+@import 'cool/theme';
+@import 'mono/theme';
+@import 'warn/theme';
+
+// @import "bootbarn-warm";
+// @import "bootbarn-cool";
+// @import "bootbarn-mono";

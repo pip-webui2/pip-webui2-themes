@@ -1,0 +1,4 @@
+$pip-dark-primary: mat-palette($mat-grey, 900);
+$pip-dark-accent:  mat-palette($pip-green, A700, A100, A400);
+$pip-dark-warn:    mat-palette($mat-red, A700);
+$pip-dark-theme:   mat-dark-theme($pip-dark-primary, $pip-dark-accent, $pip-dark-warn);

@@ -1,15 +1,28 @@
 @import 'colors';
+@import 'variables';
 
-@import "candy-app";
-@import "unicorn-dark";
+@import 'amber/theme';
+@import 'black/theme';
+@import 'blue/theme';
+@import 'candy-app/theme';
+@import 'dark/theme';
+@import 'green/theme';
+@import 'grey/theme';
+@import 'navy/theme';
+@import 'orange/theme';
+@import 'pink/theme';
+@import 'unicorn-dark/theme';
 
-@import "blue";
-@import "green";
-@import "pink";
-@import "orange";
-@import "amber";
-@import "navy";
-@import "grey";
+// @import "candy-app";
+// @import "unicorn-dark";
 
-@import "dark";
-@import "black";
+// @import "blue";
+// @import "green";
+// @import "pink";
+// @import "orange";
+// @import "amber";
+// @import "navy";
+// @import "grey";
+
+// @import "dark";
+// @import "black";

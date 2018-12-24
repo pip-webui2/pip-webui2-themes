@@ -1,0 +1,4 @@
+$pip-navy-primary: mat-palette($pip-navy);
+$pip-navy-accent:  mat-palette($pip-teal, A700, A100, A400);
+$pip-navy-warn:    mat-palette($mat-red, A200);
+$pip-navy-theme:   mat-light-theme($pip-navy-primary, $pip-navy-accent, $pip-navy-warn);
