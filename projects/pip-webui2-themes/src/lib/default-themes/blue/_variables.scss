@@ -2,3 +2,4 @@ $pip-blue-primary: mat-palette($mat-blue);
 $pip-blue-accent:  mat-palette($pip-green, A700, A100, A400);
 $pip-blue-warn:    mat-palette($mat-red, A200);
 $pip-blue-theme:   mat-light-theme($pip-blue-primary, $pip-blue-accent, $pip-blue-warn);
+$themes: map-merge($themes, ('pip-blue-theme': $pip-blue-theme));

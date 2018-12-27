@@ -2,3 +2,4 @@ $bootbarn-cool-primary: mat-palette($mat-blue-grey, 700);
 $bootbarn-cool-accent:  mat-palette($bootbarn-green, 500, A100, A400);
 $bootbarn-cool-warn:    mat-palette($mat-red, A200);
 $bootbarn-cool-theme:   mat-light-theme($bootbarn-cool-primary, $bootbarn-cool-accent, $bootbarn-cool-warn);
+$themes: map-merge($themes, ('bootbarn-cool-theme': $bootbarn-cool-theme));

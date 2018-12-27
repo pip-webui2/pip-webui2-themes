@@ -2,3 +2,4 @@ $pip-grey-primary: mat-palette($mat-blue-grey);
 $pip-grey-accent:  mat-palette($pip-blue-grey, 300, A100, A400);
 $pip-grey-warn:    mat-palette($mat-red, A200);
 $pip-grey-theme:   mat-light-theme($pip-grey-primary, $pip-grey-accent, $pip-grey-warn);
+$themes: map-merge($themes, ('pip-grey-theme': $pip-grey-theme));

@@ -107,7 +107,7 @@ Provider now only forRoot module
 #### Bug Fixes
 No bug fixes changes in this version
 
-## <a name="1.1.1"></a> 1.1.1 (2018-12-24)
+## <a name="1.1.4"></a> 1.1.4 (2018-12-24)
 
 Better way for theming components. Should include `variables` now.
 
@@ -122,3 +122,17 @@ Better way for theming components. Should include `variables` now.
 #### Bug Fixes
 No bug fixes changes in this version
 
+## <a name="1.1.5"></a> 1.1.5 (2018-12-27)
+
+List of themes provided
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+
+#### Bug Fixes
+No bug fixes changes in this version
