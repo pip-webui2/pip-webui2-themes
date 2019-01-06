@@ -136,3 +136,18 @@ List of themes provided
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.6"></a> 1.1.6 (2019-01-06)
+
+`candy-theme` fix
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+
+#### Bug Fixes
+No bug fixes changes in this version
