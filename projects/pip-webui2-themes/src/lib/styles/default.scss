@@ -1,0 +1,15 @@
+@mixin default-mixin($theme) {
+    $foreground: map-get($theme, foreground);
+    .pip-title {
+        color: mat-color($foreground, 'text');
+    }
+    .pip-subtitle {
+        color: mat-color($foreground, 'secondary-text');
+    }
+}
+
+@each $class, $theme in $themes {
+    .#{$class} {
+        @include default-mixin($theme);
+    }
+}

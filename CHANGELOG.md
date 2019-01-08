@@ -150,4 +150,19 @@ No bug fixes changes in this version
 * **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
 
 #### Bug Fixes
+* `candy-theme` fixed class
+
+## <a name="1.1.7"></a> 1.1.7 (2019-01-07)
+
+First default styles
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+
+#### Bug Fixes
 No bug fixes changes in this version
