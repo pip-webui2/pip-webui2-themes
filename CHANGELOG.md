@@ -166,3 +166,18 @@ First default styles
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.8"></a> 1.1.8 (2019-01-09)
+
+Default styles for `pip-error`, `pip-link` and `pip-success`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+
+#### Bug Fixes
+No bug fixes changes in this version

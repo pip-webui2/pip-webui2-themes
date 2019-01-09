@@ -1,10 +1,24 @@
 @mixin default-mixin($theme) {
     $foreground: map-get($theme, foreground);
+    $primary: map-get($theme, primary);
+    $success: map-get($theme, accent);
+    $warn: map-get($theme, warn);
     .pip-title {
         color: mat-color($foreground, 'text');
     }
     .pip-subtitle {
         color: mat-color($foreground, 'secondary-text');
+    }
+    .pip-error {
+        color: mat-color($warn) !important;
+    }
+    .pip-success {
+        color: mat-color($success) !important;
+    }
+    .pip-link {
+        color: mat-color($primary) !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
     }
 }
 
