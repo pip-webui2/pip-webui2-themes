@@ -30,7 +30,10 @@ export class AppComponent {
     'pip-black-theme': 'Black',
     'bootbarn-warm-theme': 'Bootbarn Warm',
     'bootbarn-cool-theme': 'Bootbarn Cool',
-    'bootbarn-mono-theme': 'Bootbarn Mono'
+    'bootbarn-mono-theme': 'Bootbarn Mono',
+    'mst-light-theme': 'MST Light',
+    'mst-dark-theme': 'MST Dark',
+    'mst-mono-theme': 'MST Mono',
   };
 
   public constructor(

@@ -117,7 +117,7 @@ Better way for theming components. Should include `variables` now.
 * **bootbarn** BootBarn themes
 
 #### Breaking Changes
-* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+No breaking changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version
@@ -132,7 +132,7 @@ List of themes provided
 * **bootbarn** BootBarn themes
 
 #### Breaking Changes
-* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+No breaking changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version
@@ -147,7 +147,7 @@ No bug fixes changes in this version
 * **bootbarn** BootBarn themes
 
 #### Breaking Changes
-* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+No breaking changes in this version
 
 #### Bug Fixes
 * `candy-theme` fixed class
@@ -162,7 +162,7 @@ First default styles
 * **bootbarn** BootBarn themes
 
 #### Breaking Changes
-* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+No breaking changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version
@@ -177,7 +177,22 @@ Default styles for `pip-error`, `pip-link` and `pip-success`
 * **bootbarn** BootBarn themes
 
 #### Breaking Changes
-* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+## <a name="1.1.9"></a> 1.1.9 (2019-01-21)
+
+Configuration to provide custom default theme name and themes list
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version

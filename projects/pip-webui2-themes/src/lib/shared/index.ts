@@ -1,2 +1,3 @@
 export * from './Theme';
-export { PipThemesService, defaultTheme } from './themes.service';
+export * from './ThemeConfig';
+export { PipThemesService } from './themes.service';
