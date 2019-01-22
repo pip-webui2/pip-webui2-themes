@@ -67,5 +67,17 @@ DEFAULT_THEMES_CONFIG.themes = [
     {
         name: 'bootbarn-mono-theme',
         palette: 'light'
+    },
+    {
+        name: 'mst-light-theme',
+        palette: 'light'
+    },
+    {
+        name: 'mst-dark-theme',
+        palette: 'light'
+    },
+    {
+        name: 'mst-mono-theme',
+        palette: 'light'
     }
 ];
