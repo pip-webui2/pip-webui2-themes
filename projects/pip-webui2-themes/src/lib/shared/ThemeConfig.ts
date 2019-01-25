@@ -4,6 +4,7 @@ import { InjectionToken } from '@angular/core';
 export class ThemesConfig {
     public defaultThemeName: string;
     public themes: Theme[];
+    public lsKey: string;
 }
 
 export const THEMES_CONFIG = new InjectionToken<ThemesConfig>('themes service config');
@@ -81,3 +82,4 @@ DEFAULT_THEMES_CONFIG.themes = [
         palette: 'light'
     }
 ];
+DEFAULT_THEMES_CONFIG.lsKey = 'theme';

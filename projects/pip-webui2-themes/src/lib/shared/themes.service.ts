@@ -16,7 +16,7 @@ export class PipThemesService {
         @Inject(THEMES_CONFIG) private config: ThemesConfig
     ) {
         // Load theme name from the local storage
-        const name: string = window.localStorage.getItem('theme');
+        const name: string = window.localStorage.getItem(this.config.lsKey);
 
         // Set theme name
         for (const theme of this.config.themes) {
@@ -73,7 +73,7 @@ export class PipThemesService {
         if (theme == null) { return; }
 
         // Save selected theme to local storage
-        window.localStorage.setItem('theme', theme.name);
+        window.localStorage.setItem(this.config.lsKey, theme.name);
 
         // Remove old theme name as a class to body
         document.body.classList.remove(this._selectedTheme.name);
