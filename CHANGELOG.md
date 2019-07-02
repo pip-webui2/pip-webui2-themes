@@ -228,3 +228,19 @@ No breaking changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.12"></a> 1.1.12 (2019-07-02)
+
+Some updates for `mst-dark-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
