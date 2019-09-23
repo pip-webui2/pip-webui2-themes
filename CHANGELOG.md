@@ -244,3 +244,20 @@ No breaking changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.13"></a> 1.1.13 (2019-09-23)
+
+MST themes updated, new theme `mst-black-dark-theme` added
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+* `mst-light-theme` renamed to `mst-orange-theme`
+* `mst-dark-theme` renamed to `mst-black-theme`
+
+#### Bug Fixes
+No bug fixes changes in this version

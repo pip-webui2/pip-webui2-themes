@@ -31,9 +31,10 @@ export class AppComponent {
     'bootbarn-warm-theme': 'Bootbarn Warm',
     'bootbarn-cool-theme': 'Bootbarn Cool',
     'bootbarn-mono-theme': 'Bootbarn Mono',
-    'mst-light-theme': 'MST Light',
-    'mst-dark-theme': 'MST Dark',
+    'mst-black-theme': 'MST Black',
+    'mst-black-dark-theme': 'MST Black Dark',
     'mst-mono-theme': 'MST Mono',
+    'mst-orange-theme': 'MST Orange',
   };
 
   public constructor(

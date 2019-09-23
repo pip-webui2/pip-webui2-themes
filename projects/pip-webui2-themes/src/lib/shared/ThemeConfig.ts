@@ -70,15 +70,19 @@ DEFAULT_THEMES_CONFIG.themes = [
         palette: 'light'
     },
     {
-        name: 'mst-light-theme',
+        name: 'mst-black-theme',
         palette: 'light'
     },
     {
-        name: 'mst-dark-theme',
-        palette: 'light'
+        name: 'mst-black-dark-theme',
+        palette: 'dark'
     },
     {
         name: 'mst-mono-theme',
+        palette: 'light'
+    },
+    {
+        name: 'mst-orange-theme',
         palette: 'light'
     }
 ];
