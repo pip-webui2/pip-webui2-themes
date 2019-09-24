@@ -293,3 +293,19 @@ No breaking changes in this version
 
 #### Bug Fixes
 * Wrong theme was registered as `mst-orange-dark-theme`, fixed
+
+## <a name="1.1.16"></a> 1.1.16 (2019-09-24)
+
+Fixes for `mst-orange-dark-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+* Colors for `mst-orange-dark-theme`
