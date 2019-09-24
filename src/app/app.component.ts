@@ -35,6 +35,7 @@ export class AppComponent {
     'mst-black-dark-theme': 'MST Black Dark',
     'mst-mono-theme': 'MST Mono',
     'mst-orange-theme': 'MST Orange',
+    'mst-orange-dark-theme': 'MST Orange Dark',
   };
 
   public constructor(

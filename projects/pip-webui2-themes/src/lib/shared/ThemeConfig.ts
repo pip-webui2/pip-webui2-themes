@@ -84,6 +84,10 @@ DEFAULT_THEMES_CONFIG.themes = [
     {
         name: 'mst-orange-theme',
         palette: 'light'
+    },
+    {
+        name: 'mst-orange-dark-theme',
+        palette: 'dark'
     }
 ];
 DEFAULT_THEMES_CONFIG.lsKey = 'theme';

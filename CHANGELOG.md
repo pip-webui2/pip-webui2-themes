@@ -261,3 +261,19 @@ MST themes updated, new theme `mst-black-dark-theme` added
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.14"></a> 1.1.14 (2019-09-24)
+
+New theme `mst-orange-dark-theme` added
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
