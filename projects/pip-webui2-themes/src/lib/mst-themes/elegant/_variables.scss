@@ -1,0 +1,48 @@
+$dark-background:     #32333c;
+$dark-bg-lighter-5:   lighten($dark-background, 5%);
+$dark-bg-lighter-10:  lighten($dark-background, 10%);
+$dark-bg-lighter-20:  lighten($dark-background, 20%);
+$dark-bg-lighter-30:  lighten($dark-background, 30%);
+$light-bg-alpha-4:    rgba(#fafafa, 0.04);
+$light-bg-alpha-12:   rgba(#fafafa, 0.12);
+
+// Background palette for dark themes.
+$mat-dark-theme-background: (
+  background:               $dark-background,
+  status-bar:               $dark-bg-lighter-20,
+  app-bar:                  $dark-bg-lighter-5,
+  hover:                    $light-bg-alpha-4,
+  card:                     $dark-bg-lighter-5,
+  dialog:                   $dark-bg-lighter-5,
+  disabled-button:          $light-bg-alpha-12,
+  raised-button:            $dark-bg-lighter-5,
+  focused-button:           $light-focused,
+  selected-button:          $dark-bg-lighter-20,
+  selected-disabled-button: $dark-bg-lighter-30,
+  disabled-button-toggle:   $dark-bg-lighter-10,
+  unselected-chip:          $dark-bg-lighter-20,
+  disabled-list-option:     $dark-bg-lighter-10,
+);
+
+$mst-elegant-primary: mat-palette($mst-elegant-orange);
+$mst-elegant-accent:  mat-palette($mst-elegant-cyan);
+$mst-elegant-warn:    mat-palette($mat-red, A200);
+$mst-elegant-theme:   mat-dark-theme($mst-elegant-primary, $mst-elegant-accent, $mst-elegant-warn);
+$themes: map-merge($themes, ('mst-elegant-theme': $mst-elegant-theme));
+$mst-elegant-gradient-colors: map-get($mst-elegant-orange, 700), map-get($mst-elegant-orange, 600),
+  map-get($mst-elegant-orange, 500), map-get($mst-elegant-orange, 400), map-get($mst-elegant-orange, 300),
+  map-get($mst-elegant-orange, 200), map-get($mst-elegant-orange, 100), map-get($mst-elegant-orange, 50),
+  map-get($mst-elegant-cyan, A700), map-get($mst-elegant-cyan, 800), map-get($mst-elegant-cyan, 700),
+  map-get($mst-elegant-cyan, 400), map-get($mst-elegant-cyan, 300), map-get($mst-elegant-cyan, 200),
+  map-get($mst-elegant-cyan, 100);
+$mst-elegant-gradient-light-colors: map-get($mst-elegant-orange, 400), map-get($mst-elegant-orange, 300),
+  map-get($mst-elegant-orange, 200), map-get($mst-elegant-orange, 100), map-get($mst-elegant-orange, 50), 
+  map-get($mst-elegant-cyan, 400), map-get($mst-elegant-cyan, 300), map-get($mst-elegant-cyan, 200),
+  map-get($mst-elegant-cyan, 100), map-get($mst-elegant-cyan, 50), map-get($mst-elegant-yellow, 400),
+  map-get($mst-elegant-yellow, 300), map-get($mst-elegant-yellow, 200), map-get($mst-elegant-yellow, 100),
+  map-get($mst-elegant-yellow, 50);
+$mst-elegant-gradient-dark-colors: map-get($mst-elegant-orange, 600), map-get($mst-elegant-orange, 700),
+  map-get($mst-elegant-orange, 800), map-get($mst-elegant-orange, 900), map-get($mst-elegant-cyan, 600),
+  map-get($mst-elegant-cyan, 700), map-get($mst-elegant-cyan, 800), map-get($mst-elegant-cyan, 900),
+  map-get($mst-elegant-mono, A100), map-get($mst-elegant-yellow, 600);
+$mst-elegant-gradient-targets: 'border-color', 'color', 'background';

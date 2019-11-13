@@ -309,3 +309,19 @@ No breaking changes in this version
 
 #### Bug Fixes
 * Colors for `mst-orange-dark-theme`
+
+## <a name="1.1.17"></a> 1.1.17 (2019-11-13)
+
+New theme `mst-elegant-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version

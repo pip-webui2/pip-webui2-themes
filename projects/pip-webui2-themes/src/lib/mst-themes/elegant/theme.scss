@@ -1,0 +1,102 @@
+$typography-config: (font-family: 'Source Sans Pro, "Helvetica Neue", sans-serif',
+  display-4: mat-typography-level(112px, 112px, 300, 'Source Sans Pro', -0.0134em),
+  display-3: mat-typography-level(56px, 56px, 400, 'Source Sans Pro', -0.0089em),
+  display-2: mat-typography-level(45px, 48px, 400, 'Source Sans Pro', 0.0000em),
+  display-1: mat-typography-level(34px, 40px, 400, 'Source Sans Pro', 0.0074em),
+  headline: mat-typography-level(24px, 32px, 400, 'Source Sans Pro', 0.0000em),
+  title: mat-typography-level(20px, 32px, 400, 'Source Sans Pro', 0.0075em),
+  subheading-2: mat-typography-level(16px, 28px, 400, 'Source Sans Pro', 0.0094em),
+  subheading-1: mat-typography-level(15px, 24px, 400, 'Source Sans Pro', 0.0067em),
+  body-2: mat-typography-level(16px, 24px, 400, 'Source Sans Pro', 0),
+  body-1: mat-typography-level(14px, 20px, 400, 'Source Sans Pro', 0.0179em),
+  button: mat-typography-level(14px, 14px, 400, 'Source Sans Pro', 0.0893em),
+  caption: mat-typography-level(12px, 20px, 400, 'Source Sans Pro', 0.0333em),
+  input: mat-typography-level(inherit, 1.125, 400, 'Source Sans Pro', 1.5px));
+
+.mst-elegant-theme {
+  @include angular-material-typography($typography-config);
+  @include angular-material-theme($mst-elegant-theme);
+  @include mat-typography-level-to-styles($typography-config, 'body-2');
+  $accent: map-get($mst-elegant-theme, accent);
+  $background: map-get($mst-elegant-theme, background);
+  $primary: map-get($mst-elegant-theme, primary);
+  $warn: map-get($mst-elegant-theme, warn);
+  $underline-color: mat-color($accent);
+
+  .mat-form-field {
+    letter-spacing: 0;
+  }
+
+  .mat-form-field-appearance-legacy {
+    .mat-form-field-underline {
+      background-color: $underline-color;
+    }
+
+    .mat-form-field-ripple {
+      height: 1px;
+    }
+  }
+
+  .mat-toolbar {
+    background: darken(map-get($background, background), 4.6%);
+  }
+
+  .mat-stroked-button.mat-accent:not([disabled]) {
+    border-color: mat-color($accent);
+  }
+
+  .mat-stroked-button.mat-primary:not([disabled]) {
+    border-color: mat-color($primary);
+  }
+
+  .mat-stroked-button.mat-warn:not([disabled]) {
+    border-color: mat-color($warn);
+  }
+
+  .mat-button,
+  .mat-raised-button,
+  .mat-flat-button,
+  .mat-stroked-button,
+  .mat-icon-button,
+  .mat-fab,
+  .mat-mini-fab {
+    text-transform: uppercase;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px darken(map-get($background, background), 5.2%);
+    border-radius: 6px;
+    background-color: lighten(map-get($background, background), 2.4%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: lighten(map-get($background, background), 2.4%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    -webkit-box-shadow: inset 0 0 6px darken(map-get($background, background), 5.2%);
+    background-color: darken(map-get($background, background), 5.2%);
+  }
+
+  @for $ti from 1 through length($mst-elegant-gradient-targets) {
+    @for $ci from 1 through length($mst-elegant-gradient-colors) {
+      .mst-gradient-#{nth($mst-elegant-gradient-targets, $ti)}-#{$ci} {
+        #{nth($mst-elegant-gradient-targets, $ti)}: nth($mst-elegant-gradient-colors, $ci) !important;
+      }
+    }
+
+    @for $ci from 1 through length($mst-elegant-gradient-light-colors) {
+      .mst-gradient-light-#{nth($mst-elegant-gradient-targets, $ti)}-#{$ci} {
+        #{nth($mst-elegant-gradient-targets, $ti)}: nth($mst-elegant-gradient-light-colors, $ci) !important;
+      }
+    }
+
+    @for $ci from 1 through length($mst-elegant-gradient-dark-colors) {
+      .mst-gradient-dark-#{nth($mst-elegant-gradient-targets, $ti)}-#{$ci} {
+        #{nth($mst-elegant-gradient-targets, $ti)}: nth($mst-elegant-gradient-dark-colors, $ci) !important;
+      }
+    }
+  }
+}

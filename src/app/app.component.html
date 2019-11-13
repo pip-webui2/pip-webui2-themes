@@ -69,6 +69,16 @@
             <a mat-raised-button routerLink=".">Link</a>
           </div>
 
+          <h3>Stroked Buttons</h3>
+          <div class="button-row">
+            <button mat-stroked-button>Basic</button>
+            <button mat-stroked-button color="primary">Primary</button>
+            <button mat-stroked-button color="accent">Accent</button>
+            <button mat-stroked-button color="warn">Warn</button>
+            <button mat-stroked-button disabled>Disabled</button>
+            <a mat-stroked-button routerLink=".">Link</a>
+          </div>
+
           <h3>Fab Buttons</h3>
           <div class="button-row">
             <button mat-fab>Basic</button>
@@ -102,6 +112,15 @@
         <div class="pip-error">pip-error</div>
         <div class="pip-success">pip-success</div>
         <div class="pip-link">pip-link</div>
+
+        <h2>Forms</h2>
+        <mat-form-field>
+          <input matInput placeholder="Simple field">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Field with error" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
       </div>
     </div>
   </div>

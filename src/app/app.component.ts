@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { FormControl, Validators } from '@angular/forms';
+
 import { PipThemesService, Theme } from 'pip-webui2-themes';
 
 @Component({
@@ -14,7 +16,8 @@ export class AppComponent {
   public picture: string;
   public mode: string;
   public app = 'Themes';
-  public newText = '';
+  public email = new FormControl('', [Validators.required, Validators.email]);
+  public newText = 'Random text from outside';
   public activeMediaQuery: boolean;
   public themesLocalNames: any = {
     'candy-theme': 'Candy',
@@ -36,6 +39,7 @@ export class AppComponent {
     'mst-mono-theme': 'MST Mono',
     'mst-orange-theme': 'MST Orange',
     'mst-orange-dark-theme': 'MST Orange Dark',
+    'mst-elegant-theme': 'MST Elegant'
   };
 
   public constructor(
@@ -56,5 +60,12 @@ export class AppComponent {
     this.theme = theme;
     this.service.selectedTheme = theme;
     this.picture = this.theme.palette === 'light' ? '/assets/1.jpg' : '/assets/2.jpg';
+  }
+
+
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+      this.email.hasError('email') ? 'Not a valid email' :
+        '';
   }
 }
