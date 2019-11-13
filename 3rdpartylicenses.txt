@@ -272,6 +272,9 @@ MIT
 @angular/platform-browser
 MIT
 
+@angular/forms
+MIT
+
 @angular/cdk
 MIT
 The MIT License
@@ -565,6 +568,8 @@ THE SOFTWARE.
 
 @angular/material/button
 
+@angular/material/form-field
+
 pip-webui2-themes
 MIT
 MIT License
@@ -589,9 +594,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-@angular/forms
-MIT
 
 core-js
 MIT
