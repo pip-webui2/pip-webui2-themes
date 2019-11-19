@@ -19,6 +19,7 @@ $typography-config: (font-family: 'Source Sans Pro, "Helvetica Neue", sans-serif
   @include mat-typography-level-to-styles($typography-config, 'body-2');
   $accent: map-get($mst-elegant-theme, accent);
   $background: map-get($mst-elegant-theme, background);
+  $foreground: map-get($mst-elegant-theme, foreground);
   $primary: map-get($mst-elegant-theme, primary);
   $warn: map-get($mst-elegant-theme, warn);
   $underline-color: mat-color($accent);
@@ -80,23 +81,29 @@ $typography-config: (font-family: 'Source Sans Pro, "Helvetica Neue", sans-serif
     background-color: darken(map-get($background, background), 5.2%);
   }
 
-  @for $ti from 1 through length($mst-elegant-gradient-targets) {
-    @for $ci from 1 through length($mst-elegant-gradient-colors) {
-      .mst-gradient-#{nth($mst-elegant-gradient-targets, $ti)}-#{$ci} {
-        #{nth($mst-elegant-gradient-targets, $ti)}: nth($mst-elegant-gradient-colors, $ci) !important;
+  @each $name, $palette in $mst-elegant-palletes {
+    @for $ci from 1 through length($palette) {
+      .mst-palette-border-color-#{$name}-#{$ci} {
+        border-color: nth($palette, $ci) !important;
+      }
+      .mst-palette-color-#{$name}-#{$ci} {
+        color: nth($palette, $ci) !important;
+      }
+      .mst-palette-background-color-#{$name}-#{$ci} {
+        background-color: nth($palette, $ci) !important;
       }
     }
+  }
 
-    @for $ci from 1 through length($mst-elegant-gradient-light-colors) {
-      .mst-gradient-light-#{nth($mst-elegant-gradient-targets, $ti)}-#{$ci} {
-        #{nth($mst-elegant-gradient-targets, $ti)}: nth($mst-elegant-gradient-light-colors, $ci) !important;
-      }
-    }
+  .mst-palette-border-color-fade {
+    border-color: map-get($foreground, text);
+  }
 
-    @for $ci from 1 through length($mst-elegant-gradient-dark-colors) {
-      .mst-gradient-dark-#{nth($mst-elegant-gradient-targets, $ti)}-#{$ci} {
-        #{nth($mst-elegant-gradient-targets, $ti)}: nth($mst-elegant-gradient-dark-colors, $ci) !important;
-      }
-    }
+  .mst-palette-color-fade {
+    color: map-get($foreground, text);
+  }
+
+  .mst-palette-background-color-fade {
+    background-color: map-get($foreground, text);
   }
 }

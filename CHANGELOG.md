@@ -325,3 +325,19 @@ No breaking changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.18"></a> 1.1.18 (2019-11-19)
+
+Changes for palettes in `mst-elegant-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+* Changes for palettes in `mst-elegant-theme`
+
+#### Bug Fixes
+No bug fixes changes in this version
