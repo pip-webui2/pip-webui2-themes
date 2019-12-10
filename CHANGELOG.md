@@ -357,3 +357,19 @@ No bug fixes changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.20"></a> 1.1.20 (2019-12-10)
+
+Unquoted font
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+* Unquoted font
+
+#### Bug Fixes
+No bug fixes changes in this version
