@@ -1,17 +1,17 @@
-$typography-config: (font-family: 'Source Sans Pro, "Helvetica Neue", sans-serif',
-  display-4: mat-typography-level(112px, 112px, 300, 'Source Sans Pro', -0.0134em),
-  display-3: mat-typography-level(56px, 56px, 400, 'Source Sans Pro', -0.0089em),
-  display-2: mat-typography-level(45px, 48px, 400, 'Source Sans Pro', 0.0000em),
-  display-1: mat-typography-level(34px, 40px, 400, 'Source Sans Pro', 0.0074em),
-  headline: mat-typography-level(24px, 32px, 400, 'Source Sans Pro', 0.0000em),
-  title: mat-typography-level(20px, 32px, 400, 'Source Sans Pro', 0.0075em),
-  subheading-2: mat-typography-level(16px, 28px, 400, 'Source Sans Pro', 0.0094em),
-  subheading-1: mat-typography-level(15px, 24px, 400, 'Source Sans Pro', 0.0067em),
-  body-2: mat-typography-level(16px, 24px, 400, 'Source Sans Pro', 0),
-  body-1: mat-typography-level(14px, 20px, 400, 'Source Sans Pro', 0.0179em),
-  button: mat-typography-level(14px, 14px, 400, 'Source Sans Pro', 0.0893em),
-  caption: mat-typography-level(12px, 20px, 400, 'Source Sans Pro', 0.0333em),
-  input: mat-typography-level(inherit, 1.125, 400, 'Source Sans Pro', 1.5px));
+$typography-config: (font-family: ("Source Sans Pro", "Helvetica Neue", "sans-serif"),
+  display-4: mat-typography-level(112px, 112px, 300, "Source Sans Pro", -0.0134em),
+  display-3: mat-typography-level(56px, 56px, 400, "Source Sans Pro", -0.0089em),
+  display-2: mat-typography-level(45px, 48px, 400, "Source Sans Pro", 0.0000em),
+  display-1: mat-typography-level(34px, 40px, 400, "Source Sans Pro", 0.0074em),
+  headline: mat-typography-level(24px, 32px, 400, "Source Sans Pro", 0.0000em),
+  title: mat-typography-level(20px, 32px, 400, "Source Sans Pro", 0.0075em),
+  subheading-2: mat-typography-level(16px, 28px, 400, "Source Sans Pro", 0.0094em),
+  subheading-1: mat-typography-level(15px, 24px, 400, "Source Sans Pro", 0.0067em),
+  body-2: mat-typography-level(16px, 24px, 400, "Source Sans Pro", 0),
+  body-1: mat-typography-level(14px, 20px, 400, "Source Sans Pro", 0.0179em),
+  button: mat-typography-level(14px, 14px, 400, "Source Sans Pro", 0.0893em),
+  caption: mat-typography-level(12px, 20px, 400, "Source Sans Pro", 0.0333em),
+  input: mat-typography-level(inherit, 1.125, 400, "Source Sans Pro", 1.5px));
 
 .mst-elegant-theme {
   @include angular-material-typography($typography-config);
@@ -22,7 +22,7 @@ $typography-config: (font-family: 'Source Sans Pro, "Helvetica Neue", sans-serif
   $foreground: map-get($mst-elegant-theme, foreground);
   $primary: map-get($mst-elegant-theme, primary);
   $warn: map-get($mst-elegant-theme, warn);
-  $underline-color: mat-color($accent);
+  $underline-color: mat-color($primary);
 
   .mat-form-field {
     letter-spacing: 0;
@@ -81,14 +81,17 @@ $typography-config: (font-family: 'Source Sans Pro, "Helvetica Neue", sans-serif
     background-color: darken(map-get($background, background), 5.2%);
   }
 
-  @each $name, $palette in $mst-elegant-palletes {
+  @each $name,
+  $palette in $mst-elegant-palletes {
     @for $ci from 1 through length($palette) {
       .mst-palette-border-color-#{$name}-#{$ci} {
         border-color: nth($palette, $ci) !important;
       }
+
       .mst-palette-color-#{$name}-#{$ci} {
         color: nth($palette, $ci) !important;
       }
+
       .mst-palette-background-color-#{$name}-#{$ci} {
         background-color: nth($palette, $ci) !important;
       }
@@ -105,5 +108,11 @@ $typography-config: (font-family: 'Source Sans Pro, "Helvetica Neue", sans-serif
 
   .mst-palette-background-color-fade {
     background-color: map-get($foreground, text);
+  }
+
+  .mst-link {
+    color: mat-color($accent) !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
   }
 }

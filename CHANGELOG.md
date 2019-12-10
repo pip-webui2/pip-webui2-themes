@@ -341,3 +341,19 @@ Changes for palettes in `mst-elegant-theme`
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.19"></a> 1.1.19 (2019-12-10)
+
+`accent` and `primary` colors switched in `mst-elegant-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+* `accent` and `primary` colors switched in `mst-elegant-theme`
+
+#### Bug Fixes
+No bug fixes changes in this version

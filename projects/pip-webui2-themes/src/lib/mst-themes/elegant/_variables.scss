@@ -24,8 +24,8 @@ $mat-dark-theme-background: (
   disabled-list-option:     $dark-bg-lighter-10,
 );
 
-$mst-elegant-primary: mat-palette($mst-elegant-orange);
-$mst-elegant-accent:  mat-palette($mst-elegant-teal);
+$mst-elegant-primary: mat-palette($mst-elegant-teal);
+$mst-elegant-accent:  mat-palette($mst-elegant-orange);
 $mst-elegant-warn:    mat-palette($mat-red, A200);
 $mst-elegant-theme:   mat-dark-theme($mst-elegant-primary, $mst-elegant-accent, $mst-elegant-warn);
 $themes: map-merge($themes, ('mst-elegant-theme': $mst-elegant-theme));
