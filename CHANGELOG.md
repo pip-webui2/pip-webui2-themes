@@ -374,7 +374,7 @@ Unquoted font
 #### Bug Fixes
 No bug fixes changes in this version
 
-## <a name="1.1.21"></a> 1.1.21 (2019-12-12)
+## <a name="1.1.22"></a> 1.1.22 (2019-12-12)
 
 Stroked buttons text color for `mst-elegant-theme`
 Snackbars added to `mst-elegant-theme`
