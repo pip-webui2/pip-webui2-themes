@@ -390,3 +390,19 @@ Snackbars added to `mst-elegant-theme`
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+## <a name="1.1.23"></a> 1.1.23 (2019-12-12)
+
+Typo fix
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+* Stroked buttons text color for `mst-elegant-theme`
+
+#### Bug Fixes
+* Typo fix: mst-\<color\>-s**c**nackbar-without-action

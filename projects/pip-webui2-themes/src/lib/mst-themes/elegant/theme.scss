@@ -125,7 +125,7 @@ $typography-config: (font-family: unquote('"Source Sans Pro", "Helvetica Neue", 
     min-width: 0;
     font-weight: 800;
 
-    &.mst-primary-scnackbar-without-action .mat-simple-snackbar-action {
+    &.mst-primary-snackbar-without-action .mat-simple-snackbar-action {
       display: none;
     }
   }
@@ -136,7 +136,7 @@ $typography-config: (font-family: unquote('"Source Sans Pro", "Helvetica Neue", 
     min-width: 0;
     font-weight: 800;
 
-    &.mst-accent-scnackbar-without-action .mat-simple-snackbar-action {
+    &.mst-accent-snackbar-without-action .mat-simple-snackbar-action {
       display: none;
     }
   }
@@ -147,7 +147,7 @@ $typography-config: (font-family: unquote('"Source Sans Pro", "Helvetica Neue", 
     min-width: 0;
     font-weight: 800;
 
-    &.mst-warn-scnackbar-without-action .mat-simple-snackbar-action {
+    &.mst-warn-snackbar-without-action .mat-simple-snackbar-action {
       display: none;
     }
   }
