@@ -118,4 +118,37 @@ $typography-config: (font-family: unquote('"Source Sans Pro", "Helvetica Neue", 
     cursor: pointer !important;
     text-decoration: none !important;
   }
+
+  .mst-primary-snackbar {
+    background-color: mat-color($primary);
+    color: mat-color($primary, default-contrast);
+    min-width: 0;
+    font-weight: 800;
+
+    &.mst-primary-scnackbar-without-action .mat-simple-snackbar-action {
+      display: none;
+    }
+  }
+
+  .mst-accent-snackbar {
+    background-color: mat-color($accent);
+    color: mat-color($accent, default-contrast);
+    min-width: 0;
+    font-weight: 800;
+
+    &.mst-accent-scnackbar-without-action .mat-simple-snackbar-action {
+      display: none;
+    }
+  }
+
+  .mst-warn-snackbar {
+    background-color: mat-color($warn);
+    color: mat-color($warn, default-contrast);
+    min-width: 0;
+    font-weight: 800;
+
+    &.mst-warn-scnackbar-without-action .mat-simple-snackbar-action {
+      display: none;
+    }
+  }
 }
