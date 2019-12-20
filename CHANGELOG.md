@@ -402,7 +402,25 @@ Typo fix
 * **mst** MST themes
 
 #### Breaking Changes
-* Stroked buttons text color for `mst-elegant-theme`
+No breaking changes in this version
 
 #### Bug Fixes
 * Typo fix: mst-\<color\>-s**c**nackbar-without-action
+
+## <a name="1.1.24"></a> 1.1.24 (2019-12-17)
+
+Updated styles in `mst-elegant-theme`
+* `select` option color is white now
+* rows in `mat-table` is mat-color($primary, 200) now
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version

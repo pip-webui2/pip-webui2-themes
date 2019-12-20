@@ -57,6 +57,17 @@ $typography-config: (font-family: unquote('"Source Sans Pro", "Helvetica Neue", 
     color: map-get($foreground, text);
   }
 
+  .mat-fab,
+  .mat-mini-fab {
+    .mat-button-wrapper {
+      padding: 0 !important;
+    }
+  }
+
+  .mat-header-row, .mat-row {
+    border-bottom-color: mat-color($primary, 200);
+  }
+
   .mat-button,
   .mat-raised-button,
   .mat-flat-button,
@@ -117,6 +128,14 @@ $typography-config: (font-family: unquote('"Source Sans Pro", "Helvetica Neue", 
     color: mat-color($accent) !important;
     cursor: pointer !important;
     text-decoration: none !important;
+  }
+
+  .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: mat-color($foreground, text) !important;
+  }
+
+  .mat-pseudo-checkbox-checked .mat-pseudo-checkbox-indeterminate {
+    background: mat-color($primary) !important;
   }
 
   .mst-primary-snackbar {
