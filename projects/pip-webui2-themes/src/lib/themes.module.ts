@@ -5,7 +5,7 @@ import { PipThemesService } from './shared/themes.service';
 
 @NgModule()
 export class PipThemesModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<PipThemesModule> {
     return {
       ngModule: PipThemesModule,
       providers: [
