@@ -1,20 +1,21 @@
 {
   "name": "pip-webui2-themes",
-  "version": "1.1.24",
+  "version": "1.2.0-rc.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "build:lib": "ng build pip-webui2-themes --prod && npm run build:lib-assets && npm run build:lib-cli",
+    "start": "pip-webui2-themes build && ng serve",
+    "build": "pip-webui2-themes build && ng build",
+    "build:lib": "ng build pip-webui2-themes --prod && npm run build:lib-assets && npm run build:lib-cli && npm run build:lib-md",
     "build:lib-assets": "cpx \"projects/pip-webui2-themes/src/assets/**\" dist/pip-webui2-themes/assets",
     "build:lib-cli": "cpx \"projects/pip-webui2-themes/bin/**\" dist/pip-webui2-themes/bin && cpx \"projects/pip-webui2-themes/themes.schema.json\" dist/pip-webui2-themes",
+    "build:lib-md": "cpx \"{LICENSE,README.md,CHANGELOG.md}\" dist/pip-webui2-themes",
     "test": "ng test",
     "test:lib": "ng test pip-webui2-themes",
     "lint": "ng lint",
     "lint:lib": "ng lint pip-webui2-themes",
     "e2e": "ng e2e",
-    "package": "npm run build:lib && (for %I in (LICENSE README.md CHANGELOG.md) do copy .\\%I .\\dist\\pip-webui2-themes) && cd dist/pip-webui2-themes && npm pack",
+    "package": "npm run build:lib && cd dist/pip-webui2-themes && npm pack",
     "deploy": "ng build --prod --base-href https://pip-webui2.github.io/pip-webui2-themes/ && ngh --dir dist/pip-webui2-themes-app"
   },
   "bin": {
@@ -40,6 +41,7 @@
     "node-sass": "^4.13.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
+    "yargs": "^15.1.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

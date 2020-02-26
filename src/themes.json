@@ -19,14 +19,8 @@
         }
     ],
     "outputDirectories": [
-        {
-            "path": "./assets/themes",
-            "force": true
-        },
-        {
-            "path": "../dist/pip-webui2-themes-app/assets/themes",
-            "force": true
-        }
+        "./assets/themes",
+        "../dist/pip-webui2-themes-app/assets/themes"
     ],
     "complete": [
         "./callbacks/example.js"

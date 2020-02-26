@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
 require = require('esm')(module /*, options*/);
-if (!process.argv || process.argv.length !== 3) {
+const argv = require('yargs').argv;
+if (!argv || !Object.keys(argv._).length) {
     console.warn('You didn\'t specify command to run. Run "pip-webui2-themes help"');
     return;
 }
-switch (process.argv[2]) {
+switch (argv._[0]) {
     case 'b':
     case 'build':
-        require('./build').build();
+        require('./build').build(argv);
         break;
     case '-h':
     case '--h':

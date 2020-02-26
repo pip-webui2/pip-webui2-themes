@@ -27,18 +27,7 @@
             "type": "array",
             "description": "Directories to store result themes",
             "items": {
-                "type": "object",
-                "properties": {
-                    "path": {
-                        "type": "string",
-                        "description": "Path to the directory"
-                    },
-                    "force": {
-                        "type": "boolean",
-                        "description": "Force create directories if it doesn't exist"
-                    }
-                },
-                "required": ["path"]
+                "type": "string"
             }
         },
         "complete": {

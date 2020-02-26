@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "esm": "^3.2.25",
-    "node-sass": "^4.13.1"
+    "node-sass": "^4.13.1",
+    "yargs": "^15.1.0"
   },
   "peerDependencies": {
     "@angular/cdk": "^9.1.0",
