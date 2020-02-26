@@ -1,18 +1,16 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { THEMES_CONFIG, DEFAULT_THEMES_CONFIG } from './shared/ThemeConfig';
-import { PipThemesService } from './shared/themes.service';
+import { PIP_THEMES_CONFIG, PipThemesConfig } from './shared/ThemeConfig';
 
 @NgModule()
 export class PipThemesModule {
-  static forRoot(): ModuleWithProviders<PipThemesModule> {
+  static withConfig(config: Partial<PipThemesConfig>): ModuleWithProviders<PipThemesModule> {
     return {
       ngModule: PipThemesModule,
       providers: [
-        PipThemesService,
         {
-          provide: THEMES_CONFIG,
-          useValue: DEFAULT_THEMES_CONFIG
+          provide: PIP_THEMES_CONFIG,
+          useValue: config
         }
       ]
     };

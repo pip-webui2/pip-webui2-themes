@@ -3,5 +3,10 @@
   "dest": "../../dist/pip-webui2-themes",
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "keepLifecycleScripts": true,
+  "whitelistedNonPeerDependencies": [
+    "esm",
+    "node-sass"
+  ]
 }

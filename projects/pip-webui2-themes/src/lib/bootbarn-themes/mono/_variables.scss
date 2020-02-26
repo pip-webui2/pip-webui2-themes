@@ -1,5 +1,0 @@
-$bootbarn-mono-primary: mat-palette($mat-blue-grey, 900);
-$bootbarn-mono-accent:  mat-palette($mat-green, 600, A100, A400);
-$bootbarn-mono-warn:    mat-palette($mat-red, A200);
-$bootbarn-mono-theme:   mat-light-theme($bootbarn-mono-primary, $bootbarn-mono-accent, $bootbarn-mono-warn);
-$themes: map-merge($themes, ('bootbarn-mono-theme': $bootbarn-mono-theme));

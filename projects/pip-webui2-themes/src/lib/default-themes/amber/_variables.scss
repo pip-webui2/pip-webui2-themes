@@ -1,5 +1,0 @@
-$pip-amber-primary: mat-palette($pip-orange);
-$pip-amber-accent:  mat-palette($pip-orange, A700, A100, A400);
-$pip-amber-warn:    mat-palette($mat-red, A200);
-$pip-amber-theme:   mat-light-theme($pip-amber-primary, $pip-amber-accent, $pip-amber-warn);
-$themes: map-merge($themes, ('pip-amber-theme': $pip-amber-theme));

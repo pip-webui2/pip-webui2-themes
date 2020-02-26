@@ -1,0 +1,34 @@
+{
+    "$schema": "../projects/pip-webui2-themes/themes.schema.json",
+    "themes": [
+        {
+            "name": "pip-blue",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-blue"
+        },
+        {
+            "name": "pip-orange",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-orange"
+        },
+        {
+            "name": "pip-green",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-green"
+        },
+        {
+            "name": "pip-unicorn-dark",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-unicorn-dark"
+        }
+    ],
+    "outputDirectories": [
+        {
+            "path": "./assets/themes",
+            "force": true
+        },
+        {
+            "path": "../dist/pip-webui2-themes-app/assets/themes",
+            "force": true
+        }
+    ],
+    "complete": [
+        "./callbacks/example.js"
+    ]
+}

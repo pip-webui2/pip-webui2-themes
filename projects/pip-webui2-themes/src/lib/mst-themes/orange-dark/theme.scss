@@ -1,6 +1,0 @@
-.mst-orange-dark-theme {
-  @include angular-material-theme($mst-orange-dark-theme);
-  .mat-button, .mat-raised-button, .mat-flat-button, .mat-stroked-button, .mat-icon-button, .mat-fab, .mat-mini-fab {
-    text-transform: uppercase;
-  }
-}

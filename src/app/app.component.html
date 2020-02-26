@@ -8,8 +8,8 @@
       </button>
       <mat-menu #menu="matMenu">
         <button *ngFor="let th of themes" mat-menu-item (click)="changeTheme(th)">
-          {{ themesLocalNames[th?.name] }}
-          <mat-icon *ngIf="th === theme" style="margin-bottom: 10px">check</mat-icon>
+          {{ th?.displayName || th?.name }}
+          <mat-icon *ngIf="th.name === theme.name" style="margin-bottom: 10px">check</mat-icon>
         </button>
       </mat-menu>
     </mat-toolbar-row>

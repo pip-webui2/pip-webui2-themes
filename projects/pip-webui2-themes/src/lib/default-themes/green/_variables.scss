@@ -1,5 +1,0 @@
-$pip-green-primary: mat-palette($pip-green);
-$pip-green-accent:  mat-palette($pip-amber, A700, A100, A400);
-$pip-green-warn:    mat-palette($mat-red, A700);
-$pip-green-theme:   mat-light-theme($pip-green-primary, $pip-green-accent, $pip-green-warn);
-$themes: map-merge($themes, ('pip-green-theme': $pip-green-theme));

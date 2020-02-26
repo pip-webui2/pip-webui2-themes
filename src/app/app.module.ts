@@ -11,7 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PipThemesModule } from 'pip-webui2-themes';
+import { PipThemesModule, pipWebui2Themes } from 'pip-webui2-themes';
 
 import { AppComponent } from './app.component';
 import { TestModule } from './test/test.module';
@@ -36,7 +36,14 @@ import { TestModule } from './test/test.module';
     ReactiveFormsModule,
 
     TestModule,
-    PipThemesModule.forRoot()
+    PipThemesModule.withConfig({
+      themes: [
+        pipWebui2Themes.Blue,
+        pipWebui2Themes.Orange,
+        pipWebui2Themes.Green,
+        pipWebui2Themes.UnicornDark
+      ]
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

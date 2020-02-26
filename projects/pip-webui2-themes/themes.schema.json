@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PipWebui2Themes configuration",
+    "type": "object",
+    "required": ["themes"],
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "themes": {
+            "type": "array",
+            "items": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Theme name"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "Path to theme file"
+                    }
+                },
+                "required": ["name", "path"]
+            }
+        },
+        "outputDirectories": {
+            "type": "array",
+            "description": "Directories to store result themes",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the directory"
+                    },
+                    "force": {
+                        "type": "boolean",
+                        "description": "Force create directories if it doesn't exist"
+                    }
+                },
+                "required": ["path"]
+            }
+        },
+        "complete": {
+            "$ref": "#/definitions/jsFiles",
+            "description": "List of files which will be called after build all of the themes"
+        }
+    },
+    "definitions": {
+        "jsFiles": {
+            "type": [
+                "string",
+                "array"
+            ],
+            "pattern": "js$",
+            "items": {
+                "oneOf": [
+                    {
+                        "type": "string",
+                        "pattern": "js$",
+                        "description": "The file to include."
+                    }
+                ]
+            },
+            "default": []
+        }
+    }
+}

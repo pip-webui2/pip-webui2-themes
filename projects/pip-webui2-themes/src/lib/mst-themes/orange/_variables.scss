@@ -1,5 +1,0 @@
-$mst-orange-primary: mat-palette($mst-orange);
-$mst-orange-accent:  mat-palette($mst-dark);
-$mst-orange-warn:    mat-palette($mat-red, 700);
-$mst-orange-theme:   mat-light-theme($mst-orange-primary, $mst-orange-accent, $mst-orange-warn);
-$themes: map-merge($themes, ('mst-orange-theme': $mst-orange-theme));

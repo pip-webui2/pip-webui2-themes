@@ -1,0 +1,6 @@
+@import 'colors';
+
+$primary: mat-palette($pip-deep-orange, 400);
+$accent:  mat-palette($pip-orange, A200, A400, A100);
+$warn:    mat-palette($mat-red, A200);
+$theme:   mat-light-theme($primary, $accent, $warn);

@@ -1,0 +1,16 @@
+/* Import or define your theme-based mixins */
+
+// @mixin example-mixin($theme) {
+//     $primary: map-get($theme, primary);
+// 
+//     .primary-text {
+//         color: mat-color($primary);
+//     }
+// 
+//     .primary-background {
+//         background-color: mat-color($primary);
+//     }
+// }
+
+/* And call them! */
+// @include example-mixin($theme);

@@ -1,5 +1,0 @@
-$mst-mono-primary: mat-palette($mst-dark);
-$mst-mono-accent:  mat-palette($mst-grey);
-$mst-mono-warn:    mat-palette($mat-red, A200);
-$mst-mono-theme:   mat-light-theme($mst-mono-primary, $mst-mono-accent, $mst-mono-warn);
-$themes: map-merge($themes, ('mst-mono-theme': $mst-mono-theme));

@@ -1,5 +1,10 @@
 {
-    "entry": "projects/pip-webui2-themes/src/lib/_variables.scss",
-    "dest": "dist/pip-webui2-themes/_variables.scss",
-    "ignoredImports": ["^~", "node_modules"]
+    "bundlerOptions": {
+        "entryFile": "./projects/pip-webui2-themes/src/lib/_variables.scss",
+        "project": "../../",
+        "rootDir": "./projects/pip-webui2-themes/src/lib/",
+        "outFile": "./dist/pip-webui2-themes/_variables.scss",
+        "ignoredImports": ["~@angular/.*"],
+        "logLevel": "silent"
+    }
 }

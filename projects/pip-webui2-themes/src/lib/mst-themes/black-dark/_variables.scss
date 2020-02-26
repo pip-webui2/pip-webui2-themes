@@ -1,5 +1,0 @@
-$mst-black-dark-primary: mat-palette($mst-dark);
-$mst-black-dark-accent:  mat-palette($mst-white);
-$mst-black-dark-warn:    mat-palette($mat-red, A200);
-$mst-black-dark-theme:   mat-dark-theme($mst-black-dark-primary, $mst-black-dark-accent, $mst-black-dark-warn);
-$themes: map-merge($themes, ('mst-black-dark-theme': $mst-black-dark-theme));

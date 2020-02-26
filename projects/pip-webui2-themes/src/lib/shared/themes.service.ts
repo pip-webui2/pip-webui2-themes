@@ -1,88 +1,105 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable, Inject, Optional } from '@angular/core';
+import { defaultsDeep } from 'lodash';
 import { Observable, BehaviorSubject } from 'rxjs';
 
+import { PipStyleManager } from './style-manager';
 import { Theme } from './Theme';
-import { THEMES_CONFIG, ThemesConfig } from './ThemeConfig';
+import { PIP_THEMES_CONFIG, PipThemesConfig, defaultPipThemesConfig } from './ThemeConfig';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class PipThemesService {
-    private _selectedTheme: Theme = new Theme();
 
-    private _themes$;
-    private _selectedTheme$;
-    private _selectedThemeName$;
+    private currentThemeSub$ = new BehaviorSubject<Theme>(null);
+    private config: PipThemesConfig;
+    private themesSub$ = new BehaviorSubject<Map<string, Theme>>(new Map<string, Theme>());
+
+    public currentTheme$: Observable<Theme> = this.currentThemeSub$.asObservable();
+    public themes$: Observable<Map<string, Theme>> = this.themesSub$.asObservable();
 
     public constructor(
-        @Inject(THEMES_CONFIG) private config: ThemesConfig
+        @Optional() @Inject(PIP_THEMES_CONFIG) config: PipThemesConfig,
+        private styleManager: PipStyleManager
     ) {
-        // Load theme name from the local storage
-        const name: string = window.localStorage.getItem(this.config.lsKey);
-
-        // Set theme name
-        for (const theme of this.config.themes) {
-            if (theme.name === name) {
-                this._selectedTheme = theme;
-                break;
-            } else if (this._selectedTheme == null || theme.name === this.config.defaultThemeName) {
-                this._selectedTheme = theme;
-            }
-        }
-
-        // Create observables
-        this._themes$ = new BehaviorSubject<Theme[]>(this.config.themes);
-        this._selectedTheme$ = new BehaviorSubject<Theme>(this._selectedTheme);
-        this._selectedThemeName$ = new BehaviorSubject<string>(this._selectedTheme.name);
-        this.selectedTheme = this._selectedTheme;
+        this.config = defaultsDeep(config, defaultPipThemesConfig);
+        const themes = new Map<string, Theme>();
+        this.config.themes.forEach(theme => themes.set(theme.name, theme));
+        this.themesSub$.next(themes);
     }
 
-    public get themes$(): Observable<Theme[]> {
-        return this._themes$;
-    }
-
-    public get themes(): Theme[] {
-        return this.config.themes;
-    }
-
-    public set themes(themes: Theme[]) {
-        this.config.themes = themes;
-        this._themes$.next(themes);
-    }
-
-    public get selectedThemeName(): string {
-        return this._selectedTheme && this._selectedTheme.name;
-    }
-
-    public set selectedThemeName(name: string) {
-        for (const theme of this.config.themes) {
-            if (theme.name === name) {
-                this.selectedTheme = theme;
-                break;
-            }
+    public initThemes() {
+        const name: string = window && window.localStorage && window.localStorage.getItem(this.config.localStorageKey);
+        const themes = this.themes;
+        if (themes.has(name)) {
+            this.currentThemeSub$.next(themes.get(name));
+            this.styleManager.setStyle('theme', `assets/themes/${name}${this.useMinifiedExt}.css`);
+        } else if (this.config.defaultTheme && themes.has(this.config.defaultTheme)) {
+            this.currentThemeSub$.next(themes.get(this.config.defaultTheme));
+            this.styleManager.setStyle('theme', `assets/themes/${this.config.defaultTheme}${this.useMinifiedExt}.css`);
+        } else {
+            console.warn('No themes found for provided name');
         }
     }
 
-    public get selectedTheme$(): Observable<Theme> {
-        return this._selectedTheme$;
+    private get useMinifiedExt(): string {
+        return this.useMinified ? '.min' : '';
     }
 
-    public get selectedTheme(): Theme {
-        return this._selectedTheme;
+    public get defaultTheme(): string {
+        return this.config.defaultTheme;
     }
 
-    public set selectedTheme(theme: Theme) {
-        if (theme == null) { return; }
+    public set defaultTheme(defaultTheme: string) {
+        this.config.defaultTheme = defaultTheme;
+    }
 
-        // Save selected theme to local storage
-        window.localStorage.setItem(this.config.lsKey, theme.name);
+    public get path(): string {
+        return this.config.path;
+    }
 
-        // Remove old theme name as a class to body
-        document.body.classList.remove(this._selectedTheme.name);
+    public set path(path: string) {
+        this.config.path = path;
+    }
 
-        this._selectedTheme = theme;
-        this._selectedTheme$.next(this._selectedTheme);
+    public get useMinified(): boolean {
+        return this.config.useMinified;
+    }
 
-        // Add new theme name as a class to body
-        document.body.classList.add(theme.name);
+    public set useMinified(useMinified: boolean) {
+        this.config.useMinified = useMinified;
+    }
+
+    public get currentTheme(): Theme {
+        return this.currentThemeSub$.value;
+    }
+
+    public get themes(): Map<string, Theme> {
+        return this.themesSub$.value;
+    }
+
+    public registerTheme(theme: Theme, force?: boolean) {
+        if (!theme || !theme.name) { console.warn('Theme or theme name wasn\'t provided'); return; }
+        const themes = this.themesSub$.value;
+        if (themes.has(theme.name) && !force) { console.warn('This theme was already provided. To '); return; }
+        themes.set(theme.name, theme);
+        this.themesSub$.next(themes);
+    }
+
+    public removeTheme(themeName: string) {
+        const themes = this.themesSub$.value;
+        if (themes.has(themeName)) {
+            themes.delete(themeName);
+            this.themesSub$.next(themes);
+        }
+    }
+
+    public selectTheme(themeName: string) {
+        const themes = this.themes;
+        if (themes.has(themeName)) {
+            this.currentThemeSub$.next(themes.get(themeName));
+            this.styleManager.setStyle('theme', `assets/themes/${themeName}${this.useMinifiedExt}.css`);
+        }
     }
 
 }
