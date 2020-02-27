@@ -1,0 +1,12 @@
+{
+    "$schema": "../node_modules/pip-webui2-themes/themes.schema.json",
+    "themes": [
+        {
+            "name": "pip-blue",
+            "path": "../node_modules/pip-webui2-themes/assets/themes/pip-blue"
+        }
+    ],
+    "output": {
+        "directories": ["path": "./assets/themes"]
+    }
+}

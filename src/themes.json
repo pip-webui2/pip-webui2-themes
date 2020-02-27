@@ -15,13 +15,16 @@
         },
         {
             "name": "pip-unicorn-dark",
-            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-unicorn-dark"
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-unicorn-dark",
+            "outputNamePattern": "pip-ud"
         }
     ],
-    "outputDirectories": [
-        "./assets/themes",
-        "../dist/pip-webui2-themes-app/assets/themes"
-    ],
+    "output": {
+        "directories": [
+            "./assets/themes",
+            "../dist/pip-webui2-themes-app/assets/themes"
+        ]
+    },
     "complete": [
         "./callbacks/example.js"
     ]

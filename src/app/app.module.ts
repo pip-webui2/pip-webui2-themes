@@ -11,7 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PipThemesModule, pipWebui2Themes } from 'pip-webui2-themes';
+import { PipThemesModule, pipWebui2Themes, Theme } from 'pip-webui2-themes';
 
 import { AppComponent } from './app.component';
 import { TestModule } from './test/test.module';
@@ -41,7 +41,9 @@ import { TestModule } from './test/test.module';
         pipWebui2Themes.Blue,
         pipWebui2Themes.Orange,
         pipWebui2Themes.Green,
-        pipWebui2Themes.UnicornDark
+        Object.assign({}, pipWebui2Themes.UnicornDark, {
+          namePatterns: ['pip-ud']
+        } as Theme)
       ]
     })
   ],

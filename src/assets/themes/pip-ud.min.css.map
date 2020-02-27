@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"file": "pip-unicorn-dark.min.css",
+	"file": "pip-ud.min.css",
 	"sources": [
 		"../../../stdin",
 		"../../../node_modules/@angular/material/_theming.scss",

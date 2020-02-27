@@ -12,9 +12,10 @@ import { PIP_THEMES_CONFIG, PipThemesConfig, defaultPipThemesConfig } from './Th
 export class PipThemesService {
 
     private currentThemeSub$ = new BehaviorSubject<Theme>(null);
-    private config: PipThemesConfig;
+    private configSub$ = new BehaviorSubject<PipThemesConfig>(null);
     private themesSub$ = new BehaviorSubject<Map<string, Theme>>(new Map<string, Theme>());
 
+    public config$: Observable<PipThemesConfig> = this.configSub$.asObservable();
     public currentTheme$: Observable<Theme> = this.currentThemeSub$.asObservable();
     public themes$: Observable<Map<string, Theme>> = this.themesSub$.asObservable();
 
@@ -33,10 +34,10 @@ export class PipThemesService {
         const themes = this.themes;
         if (themes.has(name)) {
             this.currentThemeSub$.next(themes.get(name));
-            this.styleManager.setStyle('theme', `assets/themes/${name}${this.useMinifiedExt}.css`);
+            this.selectTheme(this.currentTheme.name);
         } else if (this.config.defaultTheme && themes.has(this.config.defaultTheme)) {
             this.currentThemeSub$.next(themes.get(this.config.defaultTheme));
-            this.styleManager.setStyle('theme', `assets/themes/${this.config.defaultTheme}${this.useMinifiedExt}.css`);
+            this.selectTheme(this.currentTheme.name);
         } else {
             console.warn('No themes found for provided name');
         }
@@ -46,12 +47,21 @@ export class PipThemesService {
         return this.useMinified ? '.min' : '';
     }
 
+    public get config(): PipThemesConfig {
+        return this.configSub$.value;
+    }
+
+    public set config(config: PipThemesConfig) {
+        this.configSub$.next(config);
+    }
+
     public get defaultTheme(): string {
         return this.config.defaultTheme;
     }
 
     public set defaultTheme(defaultTheme: string) {
         this.config.defaultTheme = defaultTheme;
+        this.configSub$.next(this.config);
     }
 
     public get path(): string {
@@ -60,6 +70,16 @@ export class PipThemesService {
 
     public set path(path: string) {
         this.config.path = path;
+        this.configSub$.next(this.config);
+    }
+
+    public get namePatterns(): string[] {
+        return this.config.namePatterns;
+    }
+
+    public set namePatterns(namePatterns: string[]) {
+        this.config.namePatterns = namePatterns;
+        this.configSub$.next(this.config);
     }
 
     public get useMinified(): boolean {
@@ -68,6 +88,7 @@ export class PipThemesService {
 
     public set useMinified(useMinified: boolean) {
         this.config.useMinified = useMinified;
+        this.configSub$.next(this.config);
     }
 
     public get currentTheme(): Theme {
@@ -97,9 +118,33 @@ export class PipThemesService {
     public selectTheme(themeName: string) {
         const themes = this.themes;
         if (themes.has(themeName)) {
-            this.currentThemeSub$.next(themes.get(themeName));
-            this.styleManager.setStyle('theme', `assets/themes/${themeName}${this.useMinifiedExt}.css`);
+            // Remove old theme
+            const currentTheme = this.currentTheme;
+            (currentTheme.namePatterns || this.config.namePatterns || ['{themeName}'])
+                .map(p => generateThemeName(currentTheme, p))
+                .forEach(name => this.styleManager.removeStyle(name));
+            // Include new theme
+            const theme = themes.get(themeName);
+            this.currentThemeSub$.next(theme);
+            (theme.namePatterns || this.config.namePatterns || ['{themeName}'])
+                .map(p => generateThemeName(theme, p))
+                .forEach(name => this.styleManager.setStyle(name, `assets/themes/${name}${this.useMinifiedExt}.css`));
+            if (window && window.localStorage) {
+                window.localStorage.setItem(this.config.localStorageKey, theme.name);
+            }
         }
     }
 
+}
+
+function generateThemeName(theme: Theme, pattern: string) {
+    const v = {
+        themeName: theme.name
+    };
+    return pattern.replace(/{([^{}]*)}/g,
+        function (a, b) {
+            const r = v[b];
+            return typeof r === 'string' || typeof r === 'number' ? r.toString() : a;
+        }
+    );
 }

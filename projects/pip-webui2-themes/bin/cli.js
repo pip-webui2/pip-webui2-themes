@@ -11,6 +11,10 @@ switch (argv._[0]) {
     case 'build':
         require('./build').build(argv);
         break;
+    case 'i':
+    case 'init':
+        require('./init').init(argv);
+        break;
     case '-h':
     case '--h':
     case 'h':
@@ -22,7 +26,13 @@ switch (argv._[0]) {
             `This cli command is part of "pip-webui2-themes" project and it can build your themes.
 Available commands:
   help  - show this guide
-  build - build all themes`
+  init  - create src/themes.json and src/themes.scss files. Available options:
+    --src <path> - custom place to init module
+  build - build all themes. Available options:
+    --soft       - do not replace files if they're exist
+    --c <path>   - build with custom config file instead of src/themes.json
+    --s <path>   - build with custom styles file instead of src/themes.scss (don't set path to not use styles file at all)
+    --mixinsOnly - build only application mixins`
         );
         break;
 }

@@ -2,7 +2,10 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "PipWebui2Themes configuration",
     "type": "object",
-    "required": ["themes"],
+    "required": [
+        "themes",
+        "output"
+    ],
     "properties": {
         "$schema": {
             "type": "string"
@@ -18,17 +21,44 @@
                     "path": {
                         "type": "string",
                         "description": "Path to theme file"
+                    },
+                    "outputNamePattern": {
+                        "type": "string",
+                        "description": "Custom output name for specific themes"
+                    },
+                    "mixinsOnly": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Build only mixins provided by themes.scss"
                     }
                 },
-                "required": ["name", "path"]
+                "required": [
+                    "name",
+                    "path"
+                ]
             }
         },
-        "outputDirectories": {
-            "type": "array",
-            "description": "Directories to store result themes",
-            "items": {
-                "type": "string"
-            }
+        "output": {
+            "type": "object",
+            "description": "Settings for output files",
+            "properties": {
+                "directories": {
+                    "type": "array",
+                    "description": "Directories to store result themes",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "outputNamePattern": {
+                    "type": "string",
+                    "description": "Pattern of file names"
+                },
+                "mixinsOnlyNamePattern": {
+                    "type": "string",
+                    "description": "Pattern of file names with mixinsOnlyFlag"
+                }
+            },
+            "required": ["directories"]
         },
         "complete": {
             "$ref": "#/definitions/jsFiles",

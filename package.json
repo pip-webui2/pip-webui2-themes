@@ -1,10 +1,10 @@
 {
   "name": "pip-webui2-themes",
-  "version": "1.2.0-rc.1",
+  "version": "2.0.0-rc.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "pip-webui2-themes build && ng serve",
+    "start": "pip-webui2-themes build --soft && ng serve",
     "build": "pip-webui2-themes build && ng build",
     "build:lib": "ng build pip-webui2-themes --prod && npm run build:lib-assets && npm run build:lib-cli && npm run build:lib-md",
     "build:lib-assets": "cpx \"projects/pip-webui2-themes/src/assets/**\" dist/pip-webui2-themes/assets",
@@ -34,7 +34,6 @@
     "@angular/platform-browser": "^9.0.2",
     "@angular/platform-browser-dynamic": "^9.0.2",
     "@angular/router": "^9.0.2",
-    "core-js": "^3.6.4",
     "cpx": "^1.5.0",
     "esm": "^3.2.25",
     "lodash": "^4.17.11",

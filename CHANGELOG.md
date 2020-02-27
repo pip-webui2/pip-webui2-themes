@@ -1,411 +1,14 @@
-# Pip.WebUI.Themes  Changelog
+## <a name="2.0.0-rc.1"></a> 2.0.0-rc.1 (2020-02-27)
 
-## <a name="0.0.0"></a> 0.0.0 (2017-01-09)
+There's plenty changes mostly based on theme building process.
+The old way provides some predefined theme and you had to include each and every into your application and change `body`'s class to make things works.
+Pros of this behavior was fast themes change - no need to load any additional files. But there was a couple of cons:
+* changing theme colors or options was the reason to rebuild every package which used `pip-webui2-themes`, because packages built their own styles on custom version of this package;
+* having multiple themes meant loading them all;
 
-Initial release with service and switching color themes
+New version solves this problems and provides new way to handling any number of themes which will be loaded when you need it and creating custom themes, managing, etc. Check details in [README](./README.md).
 
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No fixes in this version 
-
-## <a name="1.0.0"></a> 1.0.0 (2018-10-08)
-
-Update to Angular 6.
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No fixes in this version
-
-## <a name="1.0.1"></a> 1.0.1 (2018-10-08)
-
-Fixes for npmjs.
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-* License was added for npmjs information
-
-## <a name="1.1.0"></a> 1.1.0 (2018-11-21)
-
-Updated to Angular 7, test fixed.
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-* Using Angular 7
-
-#### Bug Fixes
-* Library tests works now. Run `npm run test:lib` to check it out;
-* Example tests works now. Run `npm run test` to check it out;
-* E2E tests works too. Run `npm run e2e` to check it out.
-
-## <a name="1.1.1"></a> 1.1.1 (2018-11-21)
-
-Angular CDK and Material updated to 7.1
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.2"></a> 1.1.2 (2018-11-21)
-
-Next versions of Angular replaced with stable.
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.3"></a> 1.1.3 (2018-12-04)
-
-Provider now only forRoot module
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.4"></a> 1.1.4 (2018-12-24)
-
-Better way for theming components. Should include `variables` now.
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.5"></a> 1.1.5 (2018-12-27)
-
-List of themes provided
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.6"></a> 1.1.6 (2019-01-06)
-
-`candy-theme` fix
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-* `candy-theme` fixed class
-
-## <a name="1.1.7"></a> 1.1.7 (2019-01-07)
-
-First default styles
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.8"></a> 1.1.8 (2019-01-09)
-
-Default styles for `pip-error`, `pip-link` and `pip-success`
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.9"></a> 1.1.9 (2019-01-21)
-
-Configuration to provide custom default theme name and themes list
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.10"></a> 1.1.10 (2019-01-22)
-
-MST themes
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.11"></a> 1.1.11 (2019-01-25)
-
-Local storage key name in InjectionToken config
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.12"></a> 1.1.12 (2019-07-02)
-
-Some updates for `mst-dark-theme`
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.13"></a> 1.1.13 (2019-09-23)
-
-MST themes updated, new theme `mst-black-dark-theme` added
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-* `mst-light-theme` renamed to `mst-orange-theme`
-* `mst-dark-theme` renamed to `mst-black-theme`
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.14"></a> 1.1.14 (2019-09-24)
-
-New theme `mst-orange-dark-theme` added
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.15"></a> 1.1.15 (2019-09-24)
-
-Fixes for `mst-orange-dark-theme`
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-* Wrong theme was registered as `mst-orange-dark-theme`, fixed
-
-## <a name="1.1.16"></a> 1.1.16 (2019-09-24)
-
-Fixes for `mst-orange-dark-theme`
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-* Colors for `mst-orange-dark-theme`
-
-## <a name="1.1.17"></a> 1.1.17 (2019-11-13)
-
-New theme `mst-elegant-theme`
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.18"></a> 1.1.18 (2019-11-19)
-
-Changes for palettes in `mst-elegant-theme`
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-* Changes for palettes in `mst-elegant-theme`
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.19"></a> 1.1.19 (2019-12-10)
-
-`accent` and `primary` colors switched in `mst-elegant-theme`
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-* `accent` and `primary` colors switched in `mst-elegant-theme`
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.20"></a> 1.1.20 (2019-12-10)
-
-Unquoted font
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-* Unquoted font
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.22"></a> 1.1.22 (2019-12-12)
-
-Stroked buttons text color for `mst-elegant-theme`
-Snackbars added to `mst-elegant-theme`
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-* Stroked buttons text color for `mst-elegant-theme`
-
-#### Bug Fixes
-No bug fixes changes in this version
-
-## <a name="1.1.23"></a> 1.1.23 (2019-12-12)
-
-Typo fix
-
-#### Features
-* **themes** Themes switching services
-* **default** Default themes
-* **bootbarn** BootBarn themes
-* **mst** MST themes
-
-#### Breaking Changes
-No breaking changes in this version
-
-#### Bug Fixes
-* Typo fix: mst-\<color\>-s**c**nackbar-without-action
+---
 
 ## <a name="1.1.24"></a> 1.1.24 (2019-12-17)
 
@@ -424,3 +27,462 @@ No breaking changes in this version
 
 #### Bug Fixes
 No bug fixes changes in this version
+
+---
+
+## <a name="1.1.23"></a> 1.1.23 (2019-12-12)
+
+Typo fix
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+* Typo fix: mst-\<color\>-s**c**nackbar-without-action
+
+---
+
+## <a name="1.1.22"></a> 1.1.22 (2019-12-12)
+
+Stroked buttons text color for `mst-elegant-theme`
+Snackbars added to `mst-elegant-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+* Stroked buttons text color for `mst-elegant-theme`
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.20"></a> 1.1.20 (2019-12-10)
+
+Unquoted font
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+* Unquoted font
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.19"></a> 1.1.19 (2019-12-10)
+
+`accent` and `primary` colors switched in `mst-elegant-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+* `accent` and `primary` colors switched in `mst-elegant-theme`
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.18"></a> 1.1.18 (2019-11-19)
+
+Changes for palettes in `mst-elegant-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+* Changes for palettes in `mst-elegant-theme`
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.17"></a> 1.1.17 (2019-11-13)
+
+New theme `mst-elegant-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.16"></a> 1.1.16 (2019-09-24)
+
+Fixes for `mst-orange-dark-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+* Colors for `mst-orange-dark-theme`
+
+---
+
+## <a name="1.1.15"></a> 1.1.15 (2019-09-24)
+
+Fixes for `mst-orange-dark-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+* Wrong theme was registered as `mst-orange-dark-theme`, fixed
+
+---
+
+## <a name="1.1.14"></a> 1.1.14 (2019-09-24)
+
+New theme `mst-orange-dark-theme` added
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.13"></a> 1.1.13 (2019-09-23)
+
+MST themes updated, new theme `mst-black-dark-theme` added
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+* `mst-light-theme` renamed to `mst-orange-theme`
+* `mst-dark-theme` renamed to `mst-black-theme`
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.12"></a> 1.1.12 (2019-07-02)
+
+Some updates for `mst-dark-theme`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.11"></a> 1.1.11 (2019-01-25)
+
+Local storage key name in InjectionToken config
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.10"></a> 1.1.10 (2019-01-22)
+
+MST themes
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+* **mst** MST themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.9"></a> 1.1.9 (2019-01-21)
+
+Configuration to provide custom default theme name and themes list
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.8"></a> 1.1.8 (2019-01-09)
+
+Default styles for `pip-error`, `pip-link` and `pip-success`
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.7"></a> 1.1.7 (2019-01-07)
+
+First default styles
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.6"></a> 1.1.6 (2019-01-06)
+
+`candy-theme` fix
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+* `candy-theme` fixed class
+
+---
+
+## <a name="1.1.5"></a> 1.1.5 (2018-12-27)
+
+List of themes provided
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.4"></a> 1.1.4 (2018-12-24)
+
+Better way for theming components. Should include `variables` now.
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.3"></a> 1.1.3 (2018-12-04)
+
+Provider now only forRoot module
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+* **PipThemesModule** now should be replaced with **PipThemesModule.forRoot** in the main app import
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.2"></a> 1.1.2 (2018-11-21)
+
+Next versions of Angular replaced with stable.
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.1"></a> 1.1.1 (2018-11-21)
+
+Angular CDK and Material updated to 7.1
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No bug fixes changes in this version
+
+---
+
+## <a name="1.1.0"></a> 1.1.0 (2018-11-21)
+
+Updated to Angular 7, test fixed.
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+* Using Angular 7
+
+#### Bug Fixes
+* Library tests works now. Run `npm run test:lib` to check it out;
+* Example tests works now. Run `npm run test` to check it out;
+* E2E tests works too. Run `npm run e2e` to check it out.
+
+---
+
+## <a name="1.0.1"></a> 1.0.1 (2018-10-08)
+
+Fixes for npmjs.
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+* License was added for npmjs information
+
+---
+
+## <a name="1.0.0"></a> 1.0.0 (2018-10-08)
+
+Update to Angular 6.
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No fixes in this version
+
+---
+
+## <a name="0.0.0"></a> 0.0.0 (2017-01-09)
+
+Initial release with service and switching color themes
+
+#### Features
+* **themes** Themes switching services
+* **default** Default themes
+* **bootbarn** BootBarn themes
+
+#### Breaking Changes
+No breaking changes in this version
+
+#### Bug Fixes
+No fixes in this version 

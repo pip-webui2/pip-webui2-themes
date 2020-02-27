@@ -22,18 +22,29 @@ export function build(argv) {
         return { file: url };
     }
 
+    function generateThemeName(theme, pattern) {
+        const v = {
+            themeName: theme.name
+        };
+        return pattern.replace(/{([^{}]*)}/g,
+            function (a, b) {
+                var r = v[b];
+                return typeof r === 'string' || typeof r === 'number' ? r : a;
+            }
+        );
+    }
+
     try {
         const srcPath = path.join(process.cwd(), 'src');
-        const themesInfo = JSON.parse(fs.readFileSync(path.join(srcPath, 'themes.json'), 'utf-8'));
-        const themesScss = fs.existsSync(path.join(srcPath, 'themes.scss')) ? fs.readFileSync(path.join(srcPath, 'themes.scss'), 'utf-8') : '';
+        const themesInfo = JSON.parse(fs.readFileSync(argv && argv.c ? path.join(process.cwd(), argv.c) : path.join(srcPath, 'themes.json'), 'utf-8'));
+        const themesScssPath = argv && argv.s ? (typeof argv.s === 'boolean' ? null : path.join(process.cwd(), argv.s)) : path.join(srcPath, 'themes.scss');
+        const themesScss = fs.existsSync(themesScssPath) ? fs.readFileSync(themesScssPath, 'utf-8') : '';
         const outputDirectories = [];
-        for (const dir of themesInfo.outputDirectories) {
+        for (const dir of themesInfo.output.directories) {
             const dirPath = path.join(srcPath, dir);
             if (!fs.existsSync(dirPath)) {
-                if (argv && argv.force) {
-                    fs.mkdirSync(dirPath, { recursive: true });
-                    outputDirectories.push(dirPath);
-                }
+                fs.mkdirSync(dirPath, { recursive: true });
+                outputDirectories.push(dirPath);
             } else {
                 outputDirectories.push(dirPath);
             }
@@ -48,8 +59,11 @@ export function build(argv) {
             }
         }
         for (const theme of themesInfo.themes) {
-            const content = `
-        @import '~@angular/material/theming';
+            const content = argv && argv.mixinsOnly || theme.mixinsOnly ?
+                `@import '~@angular/material/theming';
+            @import '${theme.path}';
+            ${themesScss}`
+                : `@import '~@angular/material/theming';
         @import '${theme.path}';
         @if variable-exists(typography) {
             @include mat-core($typography);
@@ -58,16 +72,20 @@ export function build(argv) {
         }
         @include angular-material-theme($theme);
         ${themesScss}`;
+            const themeFileNamePattern = (argv && argv.mixinsOnly) || theme.mixinsOnly
+                ? (theme.outputNamePattern || themesInfo.output.mixinsOnlyNamePattern || theme.outputNamePattern || themesInfo.output.outputNamePattern || '{themeName}-mixins')
+                : (theme.outputNamePattern || themesInfo.output.outputNamePattern || '{themeName}');
+            const themeFileName = generateThemeName(theme, themeFileNamePattern);
             const dirThemes = outputDirectories.map(dir => ({
-                regular: path.join(dir, theme.name + '.css'),
-                minified: path.join(dir, theme.name + '.min.css'),
-                map: path.join(dir, theme.name + '.min.css.map')
+                regular: path.join(dir, themeFileName + '.css'),
+                minified: path.join(dir, themeFileName + '.min.css'),
+                map: path.join(dir, themeFileName + '.min.css.map')
             }));
             try {
                 /* Build non-minified theme file */
                 let res, resMin;
-                if (dirThemes.some(t => !fs.existsSync(t.regular)) || (argv && argv.force)) {
-                    console.log('%s\x1b[4m\x1b[33m%s\x1b[0m', 'Build regular file for theme ', theme.name);
+                if (dirThemes.some(t => fs.existsSync(t.regular)) && !(argv && argv.soft)) {
+                    console.log('%s\x1b[4m\x1b[33m%s\x1b[0m', 'Build regular file for theme ', theme.name, themeFileName);
                     res = sass.renderSync({
                         data: content,
                         includePaths: [srcPath],
@@ -75,8 +93,8 @@ export function build(argv) {
                     });
                 }
                 /* Build minified theme file and map */
-                if (dirThemes.some(t => !fs.existsSync(t.minified)) || (argv && argv.force)) {
-                    console.log('%s\x1b[4m\x1b[33m%s\x1b[0m', 'Build minified file for theme ', theme.name);
+                if (dirThemes.some(t => fs.existsSync(t.minified)) && !(argv && argv.soft)) {
+                    console.log('%s\x1b[4m\x1b[33m%s\x1b[0m', 'Build minified file for theme ', theme.name, themeFileName);
                     resMin = dirThemes.map(dir =>
                         sass.renderSync({
                             data: content,
@@ -92,10 +110,10 @@ export function build(argv) {
                 for (let i = 0; i < dirThemes.length; i++) {
                     const dir = dirThemes[i];
                     const resMinDir = resMin && resMin[i];
-                    if (res && (!fs.existsSync(dir.regular) || (argv && argv.force))) {
+                    if (res && fs.existsSync(dir.regular) && !(argv && argv.soft)) {
                         fs.writeFileSync(dir.regular, res.css);
                     }
-                    if (resMinDir && (!fs.existsSync(dir.minified) || (argv && argv.force))) {
+                    if (resMinDir && fs.existsSync(dir.minified) && !(argv && argv.soft)) {
                         fs.writeFileSync(dir.minified, resMinDir.css);
                         fs.writeFileSync(dir.map, resMinDir.map);
                     }
