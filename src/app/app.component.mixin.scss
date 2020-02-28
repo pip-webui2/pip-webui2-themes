@@ -1,0 +1,29 @@
+@import '~@angular/flex-layout/mq';
+@import './test/test.component.mixin';
+
+@mixin app-component-mixin($theme) {
+    $accent: map-get($theme, 'accent');
+    $background: map-get($theme, 'background');
+
+    app-root {
+        .content {
+            background-color: map-get($background, 'card');
+        }
+
+        .quote {
+            border-left: 3px solid mat-color($accent);
+
+            span {
+                background-color: map-get($background, 'card');
+            }
+        }
+
+        code {
+            padding: .2em .4em;
+            margin: 0;
+            font-size: 85%;
+            background-color: map-get($background, 'background');
+            border-radius: 3px;
+        }
+    }
+}

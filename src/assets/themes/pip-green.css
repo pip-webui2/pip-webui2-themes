@@ -1924,8 +1924,26 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 
 /* Import or define your theme-based mixins */
 /* And call them! */
-.primary-text {
+app-root .content {
+  background-color: white; }
+
+app-root .quote {
+  border-left: 3px solid #ffab00; }
+  app-root .quote span {
+    background-color: white; }
+
+app-root code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: #fafafa;
+  border-radius: 3px; }
+
+.pip-test.mat-primary {
   color: #4caf50; }
 
-.primary-background {
-  background-color: #4caf50; }
+.pip-test.mat-accent {
+  color: #ffab00; }
+
+.pip-test.mat-warn {
+  color: #d50000; }

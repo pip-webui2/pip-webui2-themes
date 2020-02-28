@@ -84,7 +84,7 @@ export function build(argv) {
             try {
                 /* Build non-minified theme file */
                 let res, resMin;
-                if (dirThemes.some(t => fs.existsSync(t.regular)) && !(argv && argv.soft)) {
+                if (dirThemes.some(t => !fs.existsSync(t.regular)) || !(argv && argv.soft)) {
                     console.log('%s\x1b[4m\x1b[33m%s\x1b[0m', 'Build regular file for theme ', theme.name, themeFileName);
                     res = sass.renderSync({
                         data: content,
@@ -93,7 +93,7 @@ export function build(argv) {
                     });
                 }
                 /* Build minified theme file and map */
-                if (dirThemes.some(t => fs.existsSync(t.minified)) && !(argv && argv.soft)) {
+                if (dirThemes.some(t => !fs.existsSync(t.minified)) || !(argv && argv.soft)) {
                     console.log('%s\x1b[4m\x1b[33m%s\x1b[0m', 'Build minified file for theme ', theme.name, themeFileName);
                     resMin = dirThemes.map(dir =>
                         sass.renderSync({
@@ -110,10 +110,10 @@ export function build(argv) {
                 for (let i = 0; i < dirThemes.length; i++) {
                     const dir = dirThemes[i];
                     const resMinDir = resMin && resMin[i];
-                    if (res && fs.existsSync(dir.regular) && !(argv && argv.soft)) {
+                    if (res && !(fs.existsSync(dir.regular) && argv && argv.soft)) {
                         fs.writeFileSync(dir.regular, res.css);
                     }
-                    if (resMinDir && fs.existsSync(dir.minified) && !(argv && argv.soft)) {
+                    if (resMinDir && !(fs.existsSync(dir.minified) && argv && argv.soft)) {
                         fs.writeFileSync(dir.minified, resMinDir.css);
                         fs.writeFileSync(dir.map, resMinDir.map);
                     }

@@ -14,13 +14,24 @@
 * [pip-unicorn-dark](#pip-unicorn-dark)
 
 ### pip-amber
+![](images/pip-amber.png)
 ### pip-black
+![](images/pip-black.png)
 ### pip-blue
+![](images/pip-blue.png)
 ### pip-candy
+![](images/pip-candy.png)
 ### pip-dark
+![](images/pip-dark.png)
 ### pip-green
+![](images/pip-green.png)
 ### pip-grey
+![](images/pip-grey.png)
 ### pip-navy
+![](images/pip-navy.png)
 ### pip-orange
+![](images/pip-orange.png)
 ### pip-pink
+![](images/pip-pink.png)
 ### pip-unicorn-dark
+![](images/pip-unicorn-dark.png)

@@ -2,21 +2,48 @@
     "$schema": "../projects/pip-webui2-themes/themes.schema.json",
     "themes": [
         {
+            "name": "pip-amber",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-amber"
+        },
+        {
+            "name": "pip-black",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-black"
+        },
+        {
             "name": "pip-blue",
             "path": "../projects/pip-webui2-themes/src/assets/themes/pip-blue"
         },
         {
-            "name": "pip-orange",
-            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-orange"
+            "name": "pip-candy",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-candy"
+        },
+        {
+            "name": "pip-dark",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-dark"
         },
         {
             "name": "pip-green",
             "path": "../projects/pip-webui2-themes/src/assets/themes/pip-green"
         },
         {
+            "name": "pip-grey",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-grey"
+        },
+        {
+            "name": "pip-navy",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-navy"
+        },
+        {
+            "name": "pip-orange",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-orange"
+        },
+        {
+            "name": "pip-pink",
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-pink"
+        },
+        {
             "name": "pip-unicorn-dark",
-            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-unicorn-dark",
-            "outputNamePattern": "pip-ud"
+            "path": "../projects/pip-webui2-themes/src/assets/themes/pip-unicorn-dark"
         }
     ],
     "output": {

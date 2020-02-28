@@ -1,16 +1,6 @@
 /* Import or define your theme-based mixins */
-
-@mixin application-mixin($theme) {
-    $primary: map-get($theme, primary);
-
-    .primary-text {
-        color: mat-color($primary);
-    }
-
-    .primary-background {
-        background-color: mat-color($primary);
-    }
-}
+@import './app/app.component.mixin';
 
 /* And call them! */
-@include application-mixin($theme);
+@include app-component-mixin($theme);
+@include pip-test-mixin($theme);

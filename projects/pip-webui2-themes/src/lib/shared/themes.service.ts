@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, Inject, Optional } from '@angular/core';
 import { defaultsDeep } from 'lodash';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, forkJoin } from 'rxjs';
 
 import { PipStyleManager } from './style-manager';
 import { Theme } from './Theme';
@@ -21,6 +22,7 @@ export class PipThemesService {
 
     public constructor(
         @Optional() @Inject(PIP_THEMES_CONFIG) config: PipThemesConfig,
+        private http: HttpClient,
         private styleManager: PipStyleManager
     ) {
         this.config = defaultsDeep(config, defaultPipThemesConfig);
@@ -118,20 +120,18 @@ export class PipThemesService {
     public selectTheme(themeName: string) {
         const themes = this.themes;
         if (themes.has(themeName)) {
-            // Remove old theme
-            const currentTheme = this.currentTheme;
-            (currentTheme.namePatterns || this.config.namePatterns || ['{themeName}'])
-                .map(p => generateThemeName(currentTheme, p))
-                .forEach(name => this.styleManager.removeStyle(name));
-            // Include new theme
             const theme = themes.get(themeName);
-            this.currentThemeSub$.next(theme);
-            (theme.namePatterns || this.config.namePatterns || ['{themeName}'])
+            const newStylesReqs = (theme.namePatterns || this.config.namePatterns || ['{themeName}'])
                 .map(p => generateThemeName(theme, p))
-                .forEach(name => this.styleManager.setStyle(name, `assets/themes/${name}${this.useMinifiedExt}.css`));
-            if (window && window.localStorage) {
-                window.localStorage.setItem(this.config.localStorageKey, theme.name);
-            }
+                .map(name => this.http.get(`assets/themes/${name}${this.useMinifiedExt}.css`, {
+                    responseType: 'text'
+                }));
+            forkJoin(newStylesReqs)
+                .toPromise()
+                .then(resp => {
+                    this.styleManager.removeStyle('theme');
+                    this.styleManager.setStyle('theme', resp.join('\n'));
+                });
         }
     }
 

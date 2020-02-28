@@ -1,0 +1,25 @@
+{
+    "APP": {
+        "TITLE": "PipWebUI2 Themes Презентация",
+        "ERROR": {
+            "INVALID": "Неверное значение",
+            "REQUIRED": "Поле не должно быть пустым"
+        },
+        "LANGUAGE": {
+            "EN": "Английский",
+            "RU": "Русский"
+        },
+        "MAIN": {
+            "CUSTOM": "Пользовательские компоненты",
+            "FORMS": "Формы",
+            "FORMS_PLACEHOLDER_SIMPLE": "Обычное поле",
+            "FORMS_PLACEHOLDER_ERROR": "Поле с валидацией",
+            "ICON_CHANGES": "Эта иконка изменится в зависимости от палитры темы",
+            "MATERIAL": "Некоторые компоненты Angular Material",
+            "MATERIAL_BUTTONS": "Кнопки",
+            "MATERIAL_SLIDERS": "Ползунки",
+            "PALETTE": "Палитра",
+            "THEME_DETAILS": "Информация о теме"
+        }
+    }
+}

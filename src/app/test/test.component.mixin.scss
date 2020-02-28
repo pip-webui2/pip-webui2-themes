@@ -1,0 +1,19 @@
+@mixin pip-test-mixin($theme) {
+    $primary: map-get($theme, 'primary');
+    $accent: map-get($theme, 'accent');
+    $warn: map-get($theme, 'warn');
+
+    .pip-test {
+        &.mat-primary {
+            color: mat-color($primary);
+        }
+
+        &.mat-accent {
+            color: mat-color($accent);
+        }
+
+        &.mat-warn {
+            color: mat-color($warn);
+        }
+    }
+}

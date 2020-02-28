@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,12 +10,20 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PipThemesModule, pipWebui2Themes, Theme } from 'pip-webui2-themes';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { PipThemesModule, pipWebUI2ThemesList } from 'pip-webui2-themes';
 
 import { AppComponent } from './app.component';
 import { TestModule } from './test/test.module';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [
@@ -25,6 +34,7 @@ import { TestModule } from './test/test.module';
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
+    HttpClientModule,
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
@@ -32,19 +42,20 @@ import { TestModule } from './test/test.module';
     MatMenuModule,
     MatToolbarModule,
     MatSelectModule,
+    MatSliderModule,
     MatSidenavModule,
     ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
 
     TestModule,
     PipThemesModule.withConfig({
-      themes: [
-        pipWebui2Themes.Blue,
-        pipWebui2Themes.Orange,
-        pipWebui2Themes.Green,
-        Object.assign({}, pipWebui2Themes.UnicornDark, {
-          namePatterns: ['pip-ud']
-        } as Theme)
-      ]
+      themes: pipWebUI2ThemesList
     })
   ],
   providers: [],

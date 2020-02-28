@@ -1,12 +1,22 @@
-<mat-sidenav-container class="content">
-  <mat-toolbar color="primary" class="mat-elevation-z6 example-appbar">
+<mat-sidenav-container>
+  <mat-toolbar color="primary" class="mat-elevation-z6">
     <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
-      <span fxFlex="grow">{{app}}</span>
+      <span fxFlex="grow">{{ 'APP.TITLE' | translate }}</span>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-right: 8px">
+      <button mat-icon-button [matMenuTriggerFor]="menuLang" style="margin-right: 8px">
+        <mat-icon>translate</mat-icon>
+      </button>
+      <mat-menu #menuLang="matMenu">
+        <button *ngFor="let ln of languages" mat-menu-item (click)="changeLanguage(ln)">
+          {{ 'APP.LANGUAGE.' + ln.toUpperCase() | translate }}
+          <mat-icon *ngIf="ln === language" style="margin-bottom: 10px">check</mat-icon>
+        </button>
+      </mat-menu>
+
+      <button mat-icon-button [matMenuTriggerFor]="menuTheme" style="margin-right: 8px">
         <mat-icon>format_color_fill</mat-icon>
       </button>
-      <mat-menu #menu="matMenu">
+      <mat-menu #menuTheme="matMenu">
         <button *ngFor="let th of themes" mat-menu-item (click)="changeTheme(th)">
           {{ th?.displayName || th?.name }}
           <mat-icon *ngIf="th.name === theme.name" style="margin-bottom: 10px">check</mat-icon>
@@ -15,96 +25,107 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div fxLayout="row" style="height: calc(100% - 68px);">
-    <div fxFlex="grow" style="width: calc(100% - 300px); 
+  <div fxLayout="row" style="height: calc(100% - 64px); overflow: hidden;">
+    <div class="content-wrapper">
+      <div class="content" *ngIf="theme">
+        <div fxFlex="grow">
+          <h2>{{ 'APP.MAIN.THEME_DETAILS' | translate }}</h2>
+          <div class="quote">
+            <div><code>name</code>: {{ theme?.name }}</div>
+            <div><code>displayName</code>: {{ theme?.displayName }}</div>
+            <div><code>palette</code>: {{ theme?.info?.palette }}</div>
+          </div>
+
+          <h2>{{ 'APP.MAIN.PALETTE' | translate }}</h2>
+          <div fxLayout="row">
+            <mat-toolbar color="primary">Primary</mat-toolbar>
+            <mat-toolbar color="accent">Accent</mat-toolbar>
+            <mat-toolbar color="warn">Warn</mat-toolbar>
+          </div>
+
+          <h2>{{ 'APP.MAIN.MATERIAL' | translate }}</h2>
+          <h3>{{ 'APP.MAIN.MATERIAL_BUTTONS' | translate }}</h3>
+          <div fxLayout="column" fxLayoutGap="8px">
+            <div fxLayout="row" fxLayoutGap="8px">
+              <button mat-button>Basic</button>
+              <button mat-button color="primary">Primary</button>
+              <button mat-button color="accent">Accent</button>
+              <button mat-button color="warn">Warn</button>
+              <button mat-button disabled>Disabled</button>
+              <a mat-button routerLink=".">Link</a>
+            </div>
+            <div fxLayout="row" fxLayoutGap="8px">
+              <button mat-raised-button>Basic</button>
+              <button mat-raised-button color="primary">Primary</button>
+              <button mat-raised-button color="accent">Accent</button>
+              <button mat-raised-button color="warn">Warn</button>
+              <button mat-raised-button disabled>Disabled</button>
+              <a mat-raised-button routerLink=".">Link</a>
+            </div>
+            <div fxLayout="row" fxLayoutGap="8px">
+              <button mat-stroked-button>Basic</button>
+              <button mat-stroked-button color="primary">Primary</button>
+              <button mat-stroked-button color="accent">Accent</button>
+              <button mat-stroked-button color="warn">Warn</button>
+              <button mat-stroked-button disabled>Disabled</button>
+              <a mat-stroked-button routerLink=".">Link</a>
+            </div>
+            <div fxLayout="row" fxLayoutGap="8px">
+              <button mat-fab>Basic</button>
+              <button mat-fab color="primary">Primary</button>
+              <button mat-fab color="accent">Accent</button>
+              <button mat-fab color="warn">Warn</button>
+              <button mat-fab disabled>Disabled</button>
+              <button mat-fab>
+                <mat-icon>favorite</mat-icon>
+              </button>
+              <a mat-fab routerLink=".">Link</a>
+            </div>
+            <div fxLayout="row" fxLayoutGap="8px">
+              <button mat-mini-fab>Basic</button>
+              <button mat-mini-fab color="primary">Primary</button>
+              <button mat-mini-fab color="accent">Accent</button>
+              <button mat-mini-fab color="warn">Warn</button>
+              <button mat-mini-fab disabled>Disabled</button>
+              <button mat-mini-fab>
+                <mat-icon>favorite</mat-icon>
+              </button>
+              <a mat-mini-fab routerLink=".">Link</a>
+            </div>
+          </div>
+          <h3>{{ 'APP.MAIN.MATERIAL_SLIDERS' | translate }}</h3>
+          <mat-slider [(ngModel)]="sliderValue" color="primary"></mat-slider>
+          <mat-slider [(ngModel)]="sliderValue" color="accent"></mat-slider>
+          <mat-slider [(ngModel)]="sliderValue" color="warn"></mat-slider>
+
+          <h2>{{ 'APP.MAIN.FORMS' | translate }}</h2>
+          <mat-form-field>
+            <input matInput [placeholder]="'APP.MAIN.FORMS_PLACEHOLDER_SIMPLE' | translate">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput [placeholder]="'APP.MAIN.FORMS_PLACEHOLDER_ERROR' | translate" [formControl]="email"
+              required>
+            <mat-error *ngIf="email.invalid">{{ getErrorMessage() | translate}}</mat-error>
+          </mat-form-field>
+
+          <h2>{{ 'APP.MAIN.CUSTOM' | translate }}</h2>
+          <pip-test color="primary"></pip-test>
+          <pip-test color="accent"></pip-test>
+          <pip-test color="warn"></pip-test>
+        </div>
+      </div>
+      <!-- <div fxFlex="grow" style="width: calc(100% - 300px); 
                           overflow: auto">
       <div class="router">
 
-        <h2>Изменение картинки в зависимости от светлой или темной темы</h2>
-        <img [src]="picture" class="app-pic">
+        <h2>{{ 'APP.MAIN.ICON_CHANGES' | translate }}</h2>
+        <mat-icon>{{ theme?.info?.palette === 'light' ? 'brightness_5' : 'brightness_3' }}</mat-icon>
+
         <div>
 
           <h2>Стилизация custom компонента</h2>
           <pip-test [text]="newText"></pip-test>
 
-
-
-          <h2>Проверка работы material контролов для разных тем</h2>
-          <mat-toolbar color="primary">
-            <mat-toolbar-row>Custom Toolbar</mat-toolbar-row>
-
-            <mat-toolbar-row>
-              <span>Second Line</span>
-              <span class="example-spacer"></span>
-              <mat-icon class="example-icon">verified_user</mat-icon>
-              <button mat-raised-button color="accent">Accent on primary</button>
-              <button mat-raised-button color="warn">Warn on primary</button>
-            </mat-toolbar-row>
-
-            <mat-toolbar-row>
-              <span>Third Line</span>
-              <span class="example-spacer"></span>
-              <mat-icon class="example-icon">favorite</mat-icon>
-              <mat-icon class="example-icon">delete</mat-icon>
-            </mat-toolbar-row>
-          </mat-toolbar>
-
-          <h3>Basic Buttons</h3>
-          <div class="button-row">
-            <button mat-button>Basic</button>
-            <button mat-button color="primary">Primary</button>
-            <button mat-button color="accent">Accent</button>
-            <button mat-button color="warn">Warn</button>
-            <button mat-button disabled>Disabled</button>
-            <a mat-button routerLink=".">Link</a>
-          </div>
-
-          <h3>Raised Buttons</h3>
-          <div class="button-row">
-            <button mat-raised-button>Basic</button>
-            <button mat-raised-button color="primary">Primary</button>
-            <button mat-raised-button color="accent">Accent</button>
-            <button mat-raised-button color="warn">Warn</button>
-            <button mat-raised-button disabled>Disabled</button>
-            <a mat-raised-button routerLink=".">Link</a>
-          </div>
-
-          <h3>Stroked Buttons</h3>
-          <div class="button-row">
-            <button mat-stroked-button>Basic</button>
-            <button mat-stroked-button color="primary">Primary</button>
-            <button mat-stroked-button color="accent">Accent</button>
-            <button mat-stroked-button color="warn">Warn</button>
-            <button mat-stroked-button disabled>Disabled</button>
-            <a mat-stroked-button routerLink=".">Link</a>
-          </div>
-
-          <h3>Fab Buttons</h3>
-          <div class="button-row">
-            <button mat-fab>Basic</button>
-            <button mat-fab color="primary">Primary</button>
-            <button mat-fab color="accent">Accent</button>
-            <button mat-fab color="warn">Warn</button>
-            <button mat-fab disabled>Disabled</button>
-            <button mat-fab>
-              <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
-            </button>
-            <a mat-fab routerLink=".">Link</a>
-          </div>
-
-          <h3>Mini Fab Buttons</h3>
-          <div class="button-row">
-            <button mat-mini-fab>Basic</button>
-            <button mat-mini-fab color="primary">Primary</button>
-            <button mat-mini-fab color="accent">Accent</button>
-            <button mat-mini-fab color="warn">Warn</button>
-            <button mat-mini-fab disabled>Disabled</button>
-            <button mat-mini-fab>
-              <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
-            </button>
-            <a mat-mini-fab routerLink=".">Link</a>
-          </div>
-        </div>
 
         <h2>pip classes</h2>
         <div class="pip-title">pip-title</div>
@@ -122,6 +143,7 @@
           <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
       </div>
+    </div> -->
     </div>
   </div>
 </mat-sidenav-container>

@@ -54,7 +54,7 @@ export const pipWebUI2Themes: { [name in ThemeNames]: Theme } = {
         }
     },
     [ThemeNames.Black]: {
-        name: 'pip-amber',
+        name: 'pip-black',
         displayName: 'Pip black',
         info: {
             palette: ThemePalette.Dark
@@ -125,7 +125,7 @@ export const pipWebUI2Themes: { [name in ThemeNames]: Theme } = {
     }
 };
 
-export const pipWebUI2ThemesList = Object.values(pipWebUI2Themes);
+export const pipWebUI2ThemesList = Object.keys(pipWebUI2Themes).map(k => pipWebUI2Themes[k]);
 
 export const defaultPipThemesConfig: PipThemesConfig = {
     defaultTheme: 'pip-blue',
