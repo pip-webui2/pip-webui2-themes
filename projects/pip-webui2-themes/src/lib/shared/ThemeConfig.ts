@@ -8,7 +8,7 @@ export class PipThemesConfig {
     /**
      * Name of default theme which will be used if there's no theme information stored in localStorage
      */
-    defaultTheme: string;
+    defaultThemeName: string;
     /**
      * List of available themes
      */
@@ -128,11 +128,11 @@ export const pipWebUI2Themes: { [name in ThemeNames]: Theme } = {
 export const pipWebUI2ThemesList = Object.keys(pipWebUI2Themes).map(k => pipWebUI2Themes[k]);
 
 export const defaultPipThemesConfig: PipThemesConfig = {
-    defaultTheme: 'pip-blue',
+    defaultThemeName: 'pip-blue',
     themes: [
         pipWebUI2Themes.Blue
     ],
-    path: '/assets/themes/',
+    path: 'assets/themes/',
     namePatterns: ['{themeName}'],
     localStorageKey: 'pip-webui2-themes',
     useMinified: true

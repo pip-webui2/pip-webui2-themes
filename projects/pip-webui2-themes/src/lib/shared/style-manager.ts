@@ -69,12 +69,12 @@ function createLinkElementWithKey(key: string) {
 }
 
 function createStyleElementWithKey(key: string) {
-    const linkEl = document.createElement('style');
-    linkEl.classList.add(getClassNameForKey(key));
-    document.head.appendChild(linkEl);
-    return linkEl;
+    const styleEl = document.createElement('style');
+    styleEl.classList.add(getClassNameForKey(key));
+    document.head.appendChild(styleEl);
+    return styleEl;
 }
 
 function getClassNameForKey(key: string) {
-    return `style-manager-${key}`;
+    return `pip-style-manager-${key}`;
 }

@@ -117,28 +117,6 @@ import { PipThemesModule, Theme } from 'pip-webui2-themes';
 export class AppModule { }
 ```
 
-And init the service in bootstrap component:
-```typescript
-import { PipThemesService } from 'pip-webui2-themes';
-
-@Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
-export class AppComponent {
-  public constructor(
-    ...
-    private service: PipThemesService
-    ...
-  ) {
-    ...
-    this.service.initThemes();
-    ...
-  }
-}
-```
 And it's done! Now you could use this service to work with themes in any other component, service, etc.
 You could find some description of this module's service and models in the [documentation](doc/contents.md).
 

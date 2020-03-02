@@ -29,6 +29,11 @@ export class TestComponent {
         this.matAccentClass = false;
         this.matWarnClass = true;
         break;
+      default:
+        this.matPrimaryClass = false;
+        this.matAccentClass = false;
+        this.matWarnClass = false;
+        break;
     }
   }
   @Input() text = 'This is a test component';

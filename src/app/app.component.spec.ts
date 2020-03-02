@@ -1,60 +1,70 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { PipThemesModule } from 'pip-webui2-themes';
+import { TestBed, ComponentFixture, async } from '@angular/core/testing';
+import { PipThemesService, pipWebUI2Themes } from 'pip-webui2-themes';
+import { TranslateService } from '@ngx-translate/core';
 
 import { AppComponent } from './app.component';
-import { TestModule } from './test/test.module';
+import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
       imports: [
-        FlexLayoutModule,
-        FormsModule,
-        MatIconModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatToolbarModule,
-        MatSelectModule,
-        MatSidenavModule,
-
-        PipThemesModule,
-        TestModule,
+        AppModule
       ]
     }).compileComponents();
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
-  }));
-  it('should create the app', async(() => {
+  });
+
+  it('should create the app', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should change langulage', async(async () => {
+    const translate: TranslateService = TestBed.get(TranslateService);
+    const spyOnTranslateUse = spyOn(translate, 'use');
+    component.changeLanguage('ru');
+    await fixture.whenStable();
+    expect(component.language).toEqual('ru');
+    expect(spyOnTranslateUse).toHaveBeenCalledWith('ru');
   }));
-  it(`should have as title 'Themes'`, async(() => {
-    expect(component.app).toEqual('Themes');
+
+  it('should change theme', async(async () => {
+    const service: PipThemesService = TestBed.get(PipThemesService);
+    const spyOnSelectTheme = spyOn(service, 'selectTheme');
+    component.changeTheme(pipWebUI2Themes.Amber);
+    await fixture.whenStable();
+    expect(component.theme).toEqual(pipWebUI2Themes.Amber);
+    expect(spyOnSelectTheme).toHaveBeenCalledWith(pipWebUI2Themes.Amber.name);
   }));
-  it('should contain specific text in first h2 tag', async(() => {
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Изменение картинки в зависимости от светлой или темной темы');
-  }));
-  it('should change picture if theme is dark', async(() => {
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('img.app-pic').getAttribute('src')).toBe('/assets/1.jpg');
-    component.changeTheme({name: 'unicorn-dark-theme', palette: 'dark'});
-    fixture.detectChanges();
-    expect(compiled.querySelector('img.app-pic').getAttribute('src')).toBe('/assets/2.jpg');
-  }));
+
+  it('should retrieve error messwage', () => {
+    component.email.setErrors({ required: true });
+    expect(component.getErrorMessage()).toEqual('APP.ERROR.REQUIRED');
+    component.email.setErrors({ email: true });
+    expect(component.getErrorMessage()).toEqual('APP.ERROR.INVALID');
+    component.email.setErrors({});
+    expect(component.getErrorMessage()).toEqual('');
+  });
+});
+
+describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+
+  it('should use default language if browser one is missing', () => {
+
+    TestBed.configureTestingModule({
+      imports: [
+        AppModule
+      ]
+    }).compileComponents();
+    const translate: TranslateService = TestBed.get(TranslateService);
+    spyOn(translate, 'getBrowserLang').and.returnValue('fr');
+    const spyOnTranslateUse = spyOn(translate, 'use');
+    fixture = TestBed.createComponent(AppComponent);
+    expect(spyOnTranslateUse).toHaveBeenCalledWith('en');
+  });
 });

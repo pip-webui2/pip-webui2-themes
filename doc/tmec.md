@@ -66,7 +66,7 @@ class PipThemesConfig {
     /**
      * Name of default theme which will be used if there's no theme information stored in localStorage
      */
-    defaultTheme: string;
+    defaultThemeName: string;
     /**
      * List of available themes
      */
@@ -98,7 +98,7 @@ List of predefined constants:
 * `defaultPipThemesConfig` - default configuration for module:
 ```typescript
 const defaultPipThemesConfig: PipThemesConfig = {
-    defaultTheme: 'pip-blue',
+    defaultThemeName: 'pip-blue',
     themes: [
         pipWebui2Themes.Blue
     ],

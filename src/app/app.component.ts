@@ -13,7 +13,6 @@ import { PipThemesService, Theme } from 'pip-webui2-themes';
 export class AppComponent {
   public themes: Theme[];
   public theme: Theme;
-  public picture: string;
   public mode: string;
   public email = new FormControl('', [Validators.required, Validators.email]);
   public newText = 'Random text from outside';
@@ -26,11 +25,8 @@ export class AppComponent {
     private translate: TranslateService,
     public media: MediaObserver
   ) {
-    // Themes init
-    this.service.initThemes();
     this.themes = Array.from(this.service.themes.values());
     this.theme = this.service.currentTheme;
-    this.picture = this.theme.info.palette === 'light' ? '/assets/1.jpg' : '/assets/2.jpg';
     // Translations init
     this.translate.addLangs(this.languages);
     this.translate.setDefaultLang('en');
@@ -48,7 +44,6 @@ export class AppComponent {
   public changeTheme(theme: Theme) {
     this.theme = theme;
     this.service.selectTheme(theme.name);
-    this.picture = this.theme.info.palette === 'light' ? '/assets/1.jpg' : '/assets/2.jpg';
   }
 
   getErrorMessage() {

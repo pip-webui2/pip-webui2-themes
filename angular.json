@@ -78,6 +78,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
+            "codeCoverage": true,
             "styles": [
               "src/styles.scss"
             ],
@@ -153,7 +154,15 @@
             "main": "projects/pip-webui2-themes/src/test.ts",
             "tsConfig": "projects/pip-webui2-themes/tsconfig.spec.json",
             "karmaConfig": "projects/pip-webui2-themes/karma.conf.js",
-            "codeCoverage": true
+            "codeCoverage": true,
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
           }
         },
         "lint": {

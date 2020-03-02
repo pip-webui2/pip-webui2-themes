@@ -12,18 +12,23 @@ describe('PipThemesModule', () => {
     });
 
     it(`should not provide 'PipThemesService' service`, () => {
-        expect(() => TestBed.get(PipThemesService)).toThrowError(/No provider for/);
+        // Service provided in 'root'
+        expect(() => TestBed.get(PipThemesService)).toBeTruthy();
     });
 });
 
-describe('PipThemesModule.forRoot()', () => {
+describe('PipThemesModule.withConfig()', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [PipThemesModule.forRoot()]
+            imports: [PipThemesModule.withConfig({
+                defaultThemeName: 'pip-test'
+            })]
         });
     });
 
-    it(`should provide 'PipThemesService'`, () => {
-        expect(TestBed.get(PipThemesService)).toBeTruthy();
+    it(`should provide 'PipThemesService' with custom config`, () => {
+        const service: PipThemesService = TestBed.get(PipThemesService);
+        expect(service).toBeTruthy();
+        expect(service.defaultThemeName).toBe('pip-test');
     });
 });

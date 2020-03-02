@@ -26,23 +26,6 @@ export class PipThemesService {
         private styleManager: PipStyleManager
     ) {
         this.config = defaultsDeep(config, defaultPipThemesConfig);
-        const themes = new Map<string, Theme>();
-        this.config.themes.forEach(theme => themes.set(theme.name, theme));
-        this.themesSub$.next(themes);
-    }
-
-    public initThemes() {
-        const name: string = window && window.localStorage && window.localStorage.getItem(this.config.localStorageKey);
-        const themes = this.themes;
-        if (themes.has(name)) {
-            this.currentThemeSub$.next(themes.get(name));
-            this.selectTheme(this.currentTheme.name);
-        } else if (this.config.defaultTheme && themes.has(this.config.defaultTheme)) {
-            this.currentThemeSub$.next(themes.get(this.config.defaultTheme));
-            this.selectTheme(this.currentTheme.name);
-        } else {
-            console.warn('No themes found for provided name');
-        }
     }
 
     private get useMinifiedExt(): string {
@@ -55,42 +38,41 @@ export class PipThemesService {
 
     public set config(config: PipThemesConfig) {
         this.configSub$.next(config);
+        const themes = new Map<string, Theme>();
+        this.config?.themes.forEach(theme => themes.set(theme.name, theme));
+        this.themesSub$.next(themes);
     }
 
-    public get defaultTheme(): string {
-        return this.config.defaultTheme;
+    public get defaultThemeName(): string {
+        return this.config?.defaultThemeName ?? defaultPipThemesConfig.defaultThemeName;
     }
 
-    public set defaultTheme(defaultTheme: string) {
-        this.config.defaultTheme = defaultTheme;
-        this.configSub$.next(this.config);
+    public set defaultThemeName(defaultThemeName: string) {
+        this.configSub$.next(Object.assign({}, this.config, { defaultThemeName }));
     }
 
     public get path(): string {
-        return this.config.path;
+        return this.config?.path ?? defaultPipThemesConfig.path;
     }
 
     public set path(path: string) {
-        this.config.path = path;
-        this.configSub$.next(this.config);
+        this.configSub$.next(Object.assign({}, this.config, { path }));
     }
 
     public get namePatterns(): string[] {
-        return this.config.namePatterns;
+        return this.config?.namePatterns ?? defaultPipThemesConfig.namePatterns;
     }
 
     public set namePatterns(namePatterns: string[]) {
-        this.config.namePatterns = namePatterns;
-        this.configSub$.next(this.config);
+        this.configSub$.next(Object.assign({}, this.config, { namePatterns }));
     }
 
     public get useMinified(): boolean {
-        return this.config.useMinified;
+        return this.config?.useMinified ?? defaultPipThemesConfig.useMinified;
     }
 
     public set useMinified(useMinified: boolean) {
-        this.config.useMinified = useMinified;
-        this.configSub$.next(this.config);
+        this.configSub$.next(Object.assign({}, this.config, { useMinified }));
     }
 
     public get currentTheme(): Theme {
@@ -101,37 +83,78 @@ export class PipThemesService {
         return this.themesSub$.value;
     }
 
+    public get themesArray(): Theme[] {
+        return Array.from(this.themes.values());
+    }
+
+    /**
+     * Init themes and select user theme or default one if it possible
+     */
+    public async initThemes() {
+        const name: string = window && window.localStorage && window.localStorage.getItem(this.config.localStorageKey);
+        const themes = this.themes;
+        if (themes && themes.has(name)) {
+            await this.selectTheme(name);
+        } else if (this.config.defaultThemeName && themes && themes.has(this.config.defaultThemeName)) {
+            await this.selectTheme(this.config.defaultThemeName);
+        } else {
+            console.warn('No themes found for provided name');
+        }
+    }
+
+    /**
+     * Register new theme or update existing one with new value
+     * @param theme Theme
+     * @param force Flag for force register and replace theme if it already registered
+     */
     public registerTheme(theme: Theme, force?: boolean) {
-        if (!theme || !theme.name) { console.warn('Theme or theme name wasn\'t provided'); return; }
+        if (!theme || !theme.name || !this.themes) { console.warn('Theme or theme name wasn\'t provided'); return; }
         const themes = this.themesSub$.value;
         if (themes.has(theme.name) && !force) { console.warn('This theme was already provided. To '); return; }
         themes.set(theme.name, theme);
         this.themesSub$.next(themes);
     }
 
+    /**
+     * Remove theme from registered list and update current one if we remove current theme
+     * @param themeName Name of theme
+     */
     public removeTheme(themeName: string) {
         const themes = this.themesSub$.value;
-        if (themes.has(themeName)) {
+        if (themes && themes.has(themeName)) {
             themes.delete(themeName);
             this.themesSub$.next(themes);
+            if (this.currentTheme?.name === themeName) {
+                this.initThemes();
+            }
         }
     }
 
-    public selectTheme(themeName: string) {
+    /**
+     * Select another registered theme
+     * @param themeName Name of theme to select
+     */
+    public async selectTheme(themeName: string): Promise<void> {
         const themes = this.themes;
-        if (themes.has(themeName)) {
+        if (themes && themes.has(themeName) && themeName !== this.currentTheme?.name) {
             const theme = themes.get(themeName);
-            const newStylesReqs = (theme.namePatterns || this.config.namePatterns || ['{themeName}'])
+            let newThemePath = theme.path || this.config?.path || 'assets/themes/';
+            if (!newThemePath.endsWith('/')) { newThemePath += '/'; }
+            const newStylesReqs = (theme.namePatterns || this.config?.namePatterns || ['{themeName}'])
                 .map(p => generateThemeName(theme, p))
-                .map(name => this.http.get(`assets/themes/${name}${this.useMinifiedExt}.css`, {
+                .map(name => this.http.get(newThemePath + name + this.useMinifiedExt + '.css', {
                     responseType: 'text'
                 }));
-            forkJoin(newStylesReqs)
-                .toPromise()
-                .then(resp => {
-                    this.styleManager.removeStyle('theme');
-                    this.styleManager.setStyle('theme', resp.join('\n'));
-                });
+            const resp = await forkJoin(newStylesReqs)
+                .toPromise();
+            this.styleManager.removeStyle('theme');
+            this.styleManager.setStyle('theme', resp.join('\n'));
+            this.currentThemeSub$.next(theme);
+            if (window && window.localStorage && this.config) {
+                window.localStorage.setItem(this.config.localStorageKey, themeName);
+            }
+        } else {
+            return Promise.resolve();
         }
     }
 
