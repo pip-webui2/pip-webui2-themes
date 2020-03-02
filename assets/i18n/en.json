@@ -1,0 +1,25 @@
+{
+    "APP": {
+        "TITLE": "PipWebUI2 Themes Showcase",
+        "ERROR": {
+            "INVALID": "Not a valid email",
+            "REQUIRED": "You must enter a value"
+        },
+        "LANGUAGE": {
+            "EN": "English",
+            "RU": "Russian"
+        },
+        "MAIN": {
+            "CUSTOM": "Custom components",
+            "FORMS": "Forms",
+            "FORMS_PLACEHOLDER_SIMPLE": "Simple field",
+            "FORMS_PLACEHOLDER_ERROR": "Field with validation",
+            "ICON_CHANGES": "This icon will change depends on theme palette",
+            "MATERIAL": "Some Angular Material components",
+            "MATERIAL_BUTTONS": "Buttons",
+            "MATERIAL_SLIDERS": "Sliders",
+            "PALETTE": "Palette",
+            "THEME_DETAILS": "Theme details"
+        }
+    }
+}
