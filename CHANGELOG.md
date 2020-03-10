@@ -1,3 +1,10 @@
+## <a name="2.0.0-rc.2"></a> 2.0.0-rc.2 (2020-03-03)
+
+### Bug Fixes
+* `typescript` removed from peer dependencies
+
+---
+
 ## <a name="2.0.0-rc.1"></a> 2.0.0-rc.1 (2020-02-27)
 
 There's plenty changes mostly based on theme building process.
