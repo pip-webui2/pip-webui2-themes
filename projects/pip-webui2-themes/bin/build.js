@@ -35,7 +35,26 @@ export function build(argv) {
     }
 
     try {
-        const srcPath = path.join(process.cwd(), 'src');
+        let project = argv && (argv.project || argv.p);
+        let srcPath;
+        const angularJsonPath = path.join(process.cwd(), 'angular.json');
+        if (fs.existsSync(angularJsonPath)) {
+            var angularJson = JSON.parse(fs.readFileSync(angularJsonPath));
+            if (!project) {
+                if (!angularJson.hasOwnProperty('defaultProject')) {
+                    console.error('project not defined');
+                    return;
+                }
+                project = angularJson['defaultProject'];
+            }
+            if (!angularJson.hasOwnProperty('projects') || !angularJson['projects'].hasOwnProperty(project) || !angularJson['projects'][project].hasOwnProperty('sourceRoot')) {
+                console.error('Project "' + project + '" has no "sourceRoot" property in angular.json');
+            }
+            srcPath = path.join(process.cwd(), angularJson['projects'][project]['sourceRoot']);
+        } else {
+            console.error('angular.json not found');
+            return;
+        }
         const themesInfo = JSON.parse(fs.readFileSync(argv && argv.c ? path.join(process.cwd(), argv.c) : path.join(srcPath, 'themes.json'), 'utf-8'));
         const themesScssPath = argv && argv.s ? (typeof argv.s === 'boolean' ? null : path.join(process.cwd(), argv.s)) : path.join(srcPath, 'themes.scss');
         const themesScss = fs.existsSync(themesScssPath) ? fs.readFileSync(themesScssPath, 'utf-8') : '';

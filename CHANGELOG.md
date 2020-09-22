@@ -1,3 +1,10 @@
+## <a name="2.0.0-rc.3"></a> 2.0.0-rc.3 (2020-09-22)
+
+### Bug Fixes
+* `cli` update cli commands to build themes for project, based on angular.json
+
+---
+
 ## <a name="2.0.0-rc.2"></a> 2.0.0-rc.2 (2020-03-03)
 
 ### Bug Fixes

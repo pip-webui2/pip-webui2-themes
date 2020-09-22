@@ -2,7 +2,26 @@ import fs from 'fs';
 import path from 'path';
 
 export function init(argv) {
-    const srcPath = path.join(process.cwd(), argv && argv.src || 'src');
+    let project = argv && (argv.project || argv.p);
+    let srcPath;
+    const angularJsonPath = path.join(process.cwd(), 'angular.json');
+    if (fs.existsSync(angularJsonPath)) {
+        var angularJson = JSON.parse(fs.readFileSync(angularJsonPath));
+        if (!project) {
+            if (!angularJson.hasOwnProperty('defaultProject')) {
+                console.error('project not defined');
+                return;
+            }
+            project = angularJson['defaultProject'];
+        }
+        if (!angularJson.hasOwnProperty('projects') || !angularJson['projects'].hasOwnProperty(project) || !angularJson['projects'][project].hasOwnProperty('sourceRoot')) {
+            console.error('Project "' + project + '" has no "sourceRoot" property in angular.json');
+        }
+        srcPath = path.join(process.cwd(), angularJson['projects'][project]['sourceRoot']);
+    } else {
+        console.error('angular.json not found');
+        return;
+    }
     const themesJsonPath = path.join(srcPath, 'themes.json');
     const themesScssPath = path.join(srcPath, 'themes.scss');
     if (!fs.existsSync(srcPath)) {
